@@ -195,8 +195,12 @@
 
 - (void)viewWillDisappear:(BOOL)animated
 {
+    [self.dataBase.managedObjectContext save:nil];
+    [self.dataBase savePresentedItemChangesWithCompletionHandler:^(NSError *error){
+    } ];
     [super viewWillDisappear:animated];
     if (!self.usingDatabase) {
+        
         [self.dataBase closeWithCompletionHandler:^(BOOL suucess){
         }];
     }
@@ -464,7 +468,7 @@
 
 - (void)reloadAfterChanges
 {
-    [self setupFetchedResultsController];
+  //  [self setupFetchedResultsController];
     [self.tableView reloadData];
 }
 

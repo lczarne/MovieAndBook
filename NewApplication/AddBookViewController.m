@@ -176,6 +176,9 @@
     if (!self.delegate) {
         [self.dataBase closeWithCompletionHandler:^(BOOL suucess){
         }];
+        
+    }
+    else {
         [self.delegate finishedUsingDatabase];
     }
 }
