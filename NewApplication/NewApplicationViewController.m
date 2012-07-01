@@ -38,6 +38,7 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *instructionLabel;
 @property BOOL showInstructionLabel;
+@property BOOL blinkInstruction;
 
 @property BOOL movieTapped;
 @property BOOL bookTapped;
@@ -59,6 +60,7 @@
 @synthesize thirdChoicePathLayerB=_thirdChoicePathLayerB;
 @synthesize instructionLabel = _instructionLabel;
 @synthesize showInstructionLabel=_showInstructionLabel;
+@synthesize blinkInstruction= _blinkInstruction;
 
 @synthesize movieView= _movieView;
 @synthesize bookView=_bookView;
@@ -83,6 +85,7 @@
 #define OPENING_ANIMATION 0.2
 #define ANIMATION_DURATION 0.3
 #define HIDE_ANIMATION_DURATION 0.2
+#define DEFAULT_INSTRUCTION_TEXT @"Hold an option circle"
 
 - (void)setupAnimationLayer
 {
@@ -92,9 +95,7 @@
     
     self.animationLayer.frame = self.chooseView.frame;
     [self.chooseView.layer addSublayer:self.animationLayer];
-    
-    
-    
+        
     [self.chooseView bringSubviewToFront:self.movieView];
     [self.chooseView bringSubviewToFront:self.bookView];
     [self.chooseView bringSubviewToFront:self.pastView];
@@ -245,7 +246,8 @@
 
 - (void)showFirstChoice
 {
-    
+    self.instructionLabel.text = DEFAULT_INSTRUCTION_TEXT;
+    self.showInstructionLabel = YES;
     self.movieView.transform=CGAffineTransformRotate(self.movieView.transform, -2*M_PI/5);
     self.bookView.transform=CGAffineTransformRotate(self.bookView.transform, -2*M_PI/4);
     
@@ -265,6 +267,7 @@
 
 - (void)hideFirstChoice
 {
+    
     self.movieView.alpha=0;
     self.bookView.alpha=0;
     self.movieView.hidden=YES;
@@ -273,6 +276,9 @@
 
 - (void)showSecondChoice
 {
+    self.instructionLabel.text = @"";
+    self.showInstructionLabel = YES;
+    self.blinkInstruction = YES;
     
     [self setupSecondChoicePathLayer];
     
@@ -379,6 +385,10 @@
 
 - (void)uncheck
 {
+    self.instructionLabel.text = DEFAULT_INSTRUCTION_TEXT;
+    self.instructionLabel.alpha = 1;
+    self.showInstructionLabel = YES;
+    self.blinkInstruction = NO;
     self.movieTapped =NO;
     self.bookTapped =NO;
     self.pastTapped =NO;
@@ -634,10 +644,14 @@
 {
     self.instructionLabel.alpha=1.0;
     [UIView animateWithDuration:0.5 animations:^{
-        self.instructionLabel.alpha=0.5;
+        if (self.blinkInstruction) {
+            self.instructionLabel.alpha=0.5;
+        }
     }completion:^(BOOL success){
         [UIView animateWithDuration:0.5 animations:^{
-            self.instructionLabel.alpha=1;
+            if (self.blinkInstruction) {
+                self.instructionLabel.alpha=1;
+            }
         }completion:^(BOOL success){
             
         }];
