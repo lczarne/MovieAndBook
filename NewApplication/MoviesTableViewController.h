@@ -17,6 +17,7 @@
 @property (nonatomic,strong) UIManagedDocument *dataBase;
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property BOOL showWatchedMovies;
+@property (weak, nonatomic) IBOutlet UIButton *addButton;
 
 - (void)setTitleLabelText:(NSString *)titleText;
 @end

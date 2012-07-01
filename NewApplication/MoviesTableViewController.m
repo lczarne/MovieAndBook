@@ -31,6 +31,7 @@
 @synthesize dataBase=_dataBase;
 @synthesize titleLabel = _titleLabel;
 @synthesize showWatchedMovies=_showWatchedMovies;
+@synthesize addButton = _addButton;
 
 @synthesize headerImage=_headerImage;
 @synthesize headerImageOriginYInitialValue=_headerImageOriginYInitialValue;
@@ -59,6 +60,7 @@
 - (void)hideIndicatorShowAdd
 {
     [self.loadingDataIndicator stopAnimating];
+    self.addButton.hidden=NO;
     self.optionsButton.hidden=NO;
 }
 
@@ -313,6 +315,7 @@
     [self setTitleLabel:nil];
     [self setLoadingDataIndicator:nil];
     [self setOptionsButton:nil];
+    [self setAddButton:nil];
     [super viewDidUnload];
     
 }
