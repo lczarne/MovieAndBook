@@ -23,6 +23,7 @@
 @property (nonatomic, strong) NSString* moviesTableSortDescriptionKey;
 @property (nonatomic) int moviesTableSortType;
 @property (nonatomic) BOOL moviesTableSortAscending;
+@property (nonatomic) BOOL usingDatabase;
 
 @end
 
@@ -45,6 +46,7 @@
 @synthesize moviesTableSortDescriptionKey=_moviesTableSortDescriptionKey;
 @synthesize moviesTableSortAscending=_moviesTableSortAscending;
 @synthesize moviesTableSortType=_moviesTableSortType;
+@synthesize usingDatabase;
 
 - (int)moviesTableSortType
 {
@@ -101,21 +103,20 @@
 
 - (void)useDocument
 {
-    NSLog(@"useDocument");
     if (![[NSFileManager defaultManager] fileExistsAtPath:[self.dataBase.fileURL path]]) {
-        NSLog(@"istnieje");
+       // NSLog(@"db exists");
         [self.dataBase saveToURL:self.dataBase.fileURL forSaveOperation:UIDocumentSaveForCreating completionHandler:^(BOOL success){
             [self setupFetchedResultsController];
             //  [self insertDataIntoDocument:self.dataBase];
         }];
     } else if (self.dataBase.documentState ==UIDocumentStateClosed){
-        NSLog(@"closed");
+     //   NSLog(@"closed");
         [self.dataBase openWithCompletionHandler:^(BOOL suucess){
             [self setupFetchedResultsController];
             //  [self insertDataIntoDocument:self.dataBase];
         }];
     } else if (self.dataBase.documentState ==UIDocumentStateNormal){
-        NSLog(@"normal");
+     //   NSLog(@"normal");
         [self setupFetchedResultsController];
     }
 }
@@ -123,12 +124,91 @@
 - (void)setDataBase:(UIManagedDocument *)dataBase
 {
     if (_dataBase!=dataBase) {
-        NSLog(@"setdabase:niemaDATABASE");
         _dataBase=dataBase;
         [self useDocument];
     }
 }
 
+
+#pragma mark - View Lifcycle
+- (void) viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    if (!self.dataBase) {
+        NSLog(@"niemaDATABASE");
+        NSURL *url= [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDirectory] lastObject];
+        url = [url URLByAppendingPathComponent:@"MovieBooksDatabase"];
+        self.dataBase = [[UIManagedDocument alloc] initWithFileURL:url];
+        
+    }
+}
+
+-(void)viewDidLoad
+{
+    [super viewDidLoad];
+    self.navigationItem.backBarButtonItem=[[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed: @"back3.png"] 
+                                                                           style:UIBarButtonItemStylePlain 
+                                                                          target:nil 
+                                                                          action:nil];
+    self.optionsButton.hidden=YES;
+    self.addButton.hidden= YES;
+    [self.loadingDataIndicator startAnimating];
+    self.headerImageOriginYInitialValue = self.headerImage.frame.origin.y;
+    
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [self.dataBase.managedObjectContext save:nil];
+    [self.dataBase savePresentedItemChangesWithCompletionHandler:^(NSError *error){
+    } ];
+    [super viewWillDisappear:animated];
+    if (!self.usingDatabase) {
+        
+        [self.dataBase closeWithCompletionHandler:^(BOOL suucess){
+        }];
+    }
+}
+
+- (void)viewDidUnload {
+    [self setHeaderImage:nil];
+    [self setTitleLabel:nil];
+    [self setLoadingDataIndicator:nil];
+    [self setOptionsButton:nil];
+    [self setAddButton:nil];
+    [super viewDidUnload];
+    
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{    
+    
+    if ([segue.identifier isEqualToString:@"EditCell"]) {
+        [segue.destinationViewController setDelegate:self];
+        [segue.destinationViewController setMovie:self.selectedMovie];
+    }
+    else if([segue.identifier isEqualToString:@"goToTableOptions"]){
+        [segue.destinationViewController setInstructionText:@"Sort movies by:"];
+        [segue.destinationViewController setDelegate:self];
+        [segue.destinationViewController setSelectedSortType:self.moviesTableSortType];
+        
+        NSArray *options=nil;
+        if (self.showWatchedMovies) {
+            options= [NSArray arrayWithObjects:@"Date",@"Title",@"Rating", nil];
+            
+        }
+        else{
+            options= [NSArray arrayWithObjects:@"Date",@"Title", nil];
+        }
+        [segue.destinationViewController setSegmentedControlOptions:options];
+    }
+    
+    else if([segue.identifier isEqualToString:@"AddMovie"]){
+        self.usingDatabase = YES;
+        [segue.destinationViewController setDelegate:self];
+    }
+}
 
 
 #pragma mark - Table view delegate
@@ -222,6 +302,9 @@
         if (self.lastSelectedCell && self.someCellisSelected) {
             self.lastSelectedCell.basicView.hidden=NO;
             self.lastSelectedCell.detailsView.hidden=YES;
+            self.selectedRow=[indexPath row];
+            NSIndexPath *selectedIndex = [self.tableView indexPathForCell:self.lastSelectedCell];
+            [tableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:selectedIndex] withRowAnimation:UITableViewRowAnimationNone];
         }
         
         self.selectedRow=[indexPath row];
@@ -267,6 +350,10 @@
     return height;
 }
 
+- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    cell.backgroundColor= [UIColor clearColor];
+}
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
@@ -282,69 +369,7 @@
     self.headerImage.alpha=0.8+headerImageAlphaChange;
     self.headerImage.frame= CGRectMake(self.headerImage.frame.origin.x, self.headerImageOriginYInitialValue+headerImageOriginYChange, self.headerImage.frame.size.width, self.headerImage.frame.size.height);
 }
-
-#pragma mark - View Lifcycle
-- (void) viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
-    
-    if (!self.dataBase) {
-        NSLog(@"niemaDATABASE");
-        NSURL *url= [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDirectory] lastObject];
-        url = [url URLByAppendingPathComponent:@"MovieBooksDatabase"];
-        self.dataBase = [[UIManagedDocument alloc] initWithFileURL:url];
-        
-    }
-}
-
--(void)viewDidLoad
-{
-    [super viewDidLoad];
-    self.navigationItem.backBarButtonItem=[[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed: @"back3.png"] 
-                                                                           style:UIBarButtonItemStylePlain 
-                                                                          target:nil 
-                                                                          action:nil];
-     self.optionsButton.hidden=YES;
-    [self.loadingDataIndicator startAnimating];
-    self.headerImageOriginYInitialValue = self.headerImage.frame.origin.y;
-    
-}
-
-- (void)viewDidUnload {
-    [self setHeaderImage:nil];
-    [self setTitleLabel:nil];
-    [self setLoadingDataIndicator:nil];
-    [self setOptionsButton:nil];
-    [self setAddButton:nil];
-    [super viewDidUnload];
-    
-}
-
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{    
-    
-    if ([segue.identifier isEqualToString:@"EditCell"]) {
-        [segue.destinationViewController setDelegate:self];
-        [segue.destinationViewController setMovie:self.selectedMovie];
-    }
-    else if([segue.identifier isEqualToString:@"goToTableOptions"]){
-        [segue.destinationViewController setInstructionText:@"Sort movies by:"];
-        [segue.destinationViewController setDelegate:self];
-        [segue.destinationViewController setSelectedSortType:self.moviesTableSortType];
-        
-        NSArray *options=nil;
-        if (self.showWatchedMovies) {
-            options= [NSArray arrayWithObjects:@"Date",@"Title",@"Rating", nil];
-            
-        }
-        else{
-            options= [NSArray arrayWithObjects:@"Date",@"Title", nil];
-        }
-        [segue.destinationViewController setSegmentedControlOptions:options];
-    }
-    
-}
-    
+  
 #pragma mark - customSpecialCellDelegate
 
 - (void)editCell:(CustomMovieCell *)sender
@@ -395,6 +420,17 @@
     
     // [self setupFetchedResultsController];
     [self.tableView reloadData];
+}
+
+- (void)finishedUsingDatabase
+{
+    self.usingDatabase = NO;
+}
+
+#pragma mark - AddMovieViewControllerDelegate
+
+- (UIManagedDocument *)delegatesDataBase{
+    return self.dataBase;
 }
 
 #pragma mark - TableOptionsViewControllerDelegate

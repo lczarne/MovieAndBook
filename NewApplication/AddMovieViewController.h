@@ -8,7 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
+@class AddMovieViewController;
+@protocol AddMovieViewControllerDelegate
+- (UIManagedDocument *)delegatesDataBase;
+- (void)reloadAfterChanges;
+- (void)finishedUsingDatabase;
+@end
+
 @interface AddMovieViewController : UIViewController <UIAlertViewDelegate,UITextFieldDelegate>
+
 
 @property (nonatomic,strong) UIManagedDocument *dataBase;
 @property BOOL watchedMovies;
@@ -22,6 +30,8 @@
 @property (weak, nonatomic) IBOutlet UIButton *ratingMinusButton;
 @property (weak, nonatomic) IBOutlet UIButton *ratingPlusButton;
 @property (weak, nonatomic) IBOutlet UIButton *saveMovieButton;
+
+@property (nonatomic, strong) id<AddMovieViewControllerDelegate> delegate;
 
 
 @end

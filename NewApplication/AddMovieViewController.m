@@ -14,6 +14,7 @@
 @end
 
 @implementation AddMovieViewController
+@synthesize delegate;
 @synthesize dataBase=_dataBase;
 @synthesize watchedMovies=_watchedMovies;
 
@@ -80,7 +81,7 @@
 
 
 
-- (IBAction)addBook:(UIBarButtonItem*)sender 
+- (IBAction)addMovie:(UIBarButtonItem*)sender 
 {
     if ([self.titleField.text length]){
         if (!self.ratingSwitch.isOn){
@@ -92,6 +93,7 @@
                     Watched:self.watchedMovies 
      inManagedObjectContext:self.dataBase.managedObjectContext];
         
+        [self.delegate reloadAfterChanges];
         
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:@"Movie was Added."
                                                        delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
@@ -152,17 +154,28 @@
     self.titleField.delegate=self;
     self.infoField.delegate=self;
     
-    if (!self.dataBase) {
-        NSURL *url= [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDirectory] lastObject];
-        url = [url URLByAppendingPathComponent:@"MovieBooksDatabase"];
-        self.dataBase = [[UIManagedDocument alloc] initWithFileURL:url];
+    if (self.delegate) {
+        self.dataBase = [self.delegate delegatesDataBase];
     }
+    else {
+        if (!self.dataBase) {
+            NSURL *url= [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDirectory] lastObject];
+            url = [url URLByAppendingPathComponent:@"MovieBooksDatabase"];
+            self.dataBase = [[UIManagedDocument alloc] initWithFileURL:url];
+        }
+    } 
 }
 - (void)viewWillDisappear:(BOOL)animated
 {
     [super viewWillDisappear:animated];
-    [self.dataBase closeWithCompletionHandler:^(BOOL suucess){
-    }];
+    if (!self.delegate) {
+        [self.dataBase closeWithCompletionHandler:^(BOOL suucess){
+        }];
+        
+    }
+    else {
+        [self.delegate finishedUsingDatabase];
+    }
 }
 
 - (void)viewDidUnload {

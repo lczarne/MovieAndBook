@@ -121,21 +121,20 @@
 
 - (void)useDocument
 {
-    NSLog(@"useDocument");
     if (![[NSFileManager defaultManager] fileExistsAtPath:[self.dataBase.fileURL path]]) {
-        NSLog(@"istnieje");
+       // NSLog(@"db exists");
         [self.dataBase saveToURL:self.dataBase.fileURL forSaveOperation:UIDocumentSaveForCreating completionHandler:^(BOOL success){
             [self setupFetchedResultsController];
             //  [self insertDataIntoDocument:self.dataBase];
         }];
     } else if (self.dataBase.documentState ==UIDocumentStateClosed){
-        NSLog(@"closed");
+       // NSLog(@"closed");
         [self.dataBase openWithCompletionHandler:^(BOOL suucess){
             [self setupFetchedResultsController];
             //  [self insertDataIntoDocument:self.dataBase];
         }];
     } else if (self.dataBase.documentState ==UIDocumentStateNormal){
-        NSLog(@"normal");
+      //  NSLog(@"normal");
         [self setupFetchedResultsController];
     }
 }
@@ -143,7 +142,6 @@
 - (void)setDataBase:(UIManagedDocument *)dataBase
 {
     if (_dataBase!=dataBase) {
-        NSLog(@"setdabase:niemaDATABASE");
         _dataBase=dataBase;
         [self useDocument];
     }
@@ -158,9 +156,6 @@
     
     [super viewWillAppear:animated];
     
-    /*
-    self.navigationItem.leftBarButtonItem=[[UIBarButtonItem alloc] initWithCustomView:[[UIImageView alloc] initWithImage:[UIImage imageNamed: @"back3.png"]]];
-    */ 
     
     
     if (!self.dataBase) {

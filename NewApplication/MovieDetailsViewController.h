@@ -13,6 +13,7 @@
 @protocol MovieDetailViewDelegate
 -(void)deleteMovie:(Movie*)book sender:(MovieDetailsViewController*) sender;
 -(void)reloadAfterChanges;
+-(void)finishedUsingDatabase;
 @end
 
 @interface MovieDetailsViewController : UIViewController <UITextFieldDelegate, UIAlertViewDelegate>

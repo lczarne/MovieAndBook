@@ -85,7 +85,7 @@
 #define OPENING_ANIMATION 0.2
 #define ANIMATION_DURATION 0.3
 #define HIDE_ANIMATION_DURATION 0.2
-#define DEFAULT_INSTRUCTION_TEXT @"Hold an option circle"
+#define DEFAULT_INSTRUCTION_TEXT @"Hold one circle"
 
 - (void)setupAnimationLayer
 {

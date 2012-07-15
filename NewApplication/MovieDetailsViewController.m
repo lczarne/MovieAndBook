@@ -142,6 +142,11 @@
     
 }
 
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [self.delegate finishedUsingDatabase];
+}
+
 - (void)viewDidUnload
 {
     [self setStaticLabelRating:nil];
