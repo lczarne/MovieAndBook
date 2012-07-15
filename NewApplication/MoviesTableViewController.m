@@ -9,6 +9,7 @@
 #import "MoviesTableViewController.h"
 #import "CustomMovieCell.h"
 #import "Movie+CreatingDeleting.h"
+#import "AddMovieViewController.h"
 
 @interface MoviesTableViewController()
 @property (weak, nonatomic) IBOutlet UIImageView *headerImage;
@@ -206,6 +207,14 @@
     
     else if([segue.identifier isEqualToString:@"AddMovie"]){
         self.usingDatabase = YES;
+        self.usingDatabase = YES;
+        if (self.showWatchedMovies) {
+            [segue.destinationViewController setWatchedMovies:YES];
+        }
+        else {
+            [segue.destinationViewController setWatchedMovies:NO];
+        }
+        
         [segue.destinationViewController setDelegate:self];
     }
 }

@@ -238,6 +238,13 @@
     
     else if([segue.identifier isEqualToString:@"AddBook"]){
         self.usingDatabase = YES;
+        if (self.showFinishedBooks) {
+            [segue.destinationViewController setFinishedBooks:YES];
+        }
+        else {
+            [segue.destinationViewController setFinishedBooks:NO];
+        }
+        
         [segue.destinationViewController setDelegate:self];
     }
     
