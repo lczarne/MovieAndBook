@@ -324,7 +324,7 @@
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Add Book" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" id="qDs-fX-o6i">
-                                    <rect key="frame" x="-1" y="0.0" width="130" height="38"/>
+                                    <rect key="frame" x="-1" y="0.0" width="130" height="33"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <color key="backgroundColor" white="1" alpha="0.0" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                     <fontDescription key="fontDescription" name="Futura-CondensedMedium" family="Futura" pointSize="30"/>
@@ -711,7 +711,7 @@
                     </connections>
                 </viewController>
             </objects>
-            <point key="canvasLocation" x="1440" y="-7"/>
+            <point key="canvasLocation" x="1312" y="-7"/>
         </scene>
         <!--Add Movie View Controller-->
         <scene sceneID="Z2F-Jg-bpV">
@@ -854,7 +854,7 @@
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Add Movie" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" id="dTh-Y4-Ubu">
-                                    <rect key="frame" x="-1" y="-2" width="130" height="38"/>
+                                    <rect key="frame" x="-1" y="0.0" width="130" height="33"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <color key="backgroundColor" white="1" alpha="0.0" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                     <fontDescription key="fontDescription" name="Futura-CondensedMedium" family="Futura" pointSize="30"/>
@@ -990,11 +990,11 @@
                             </view>
                         </barButtonItem>
                         <view key="titleView" alpha="0.0" contentMode="scaleToFill" id="YCt-Ld-sOg">
-                            <rect key="frame" x="84" y="3" width="179" height="39"/>
+                            <rect key="frame" x="84" y="6" width="179" height="33"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Movies" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" id="qOK-vT-x9C">
-                                    <rect key="frame" x="-12" y="0.0" width="177" height="38"/>
+                                    <rect key="frame" x="-12" y="0.0" width="177" height="33"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <color key="backgroundColor" white="1" alpha="0.0" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                     <fontDescription key="fontDescription" name="Futura-CondensedMedium" family="Futura" pointSize="30"/>
@@ -1198,7 +1198,7 @@
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Edit Movie Details" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" id="Lvg-ku-2vN">
-                                    <rect key="frame" x="-32" y="-2" width="227" height="38"/>
+                                    <rect key="frame" x="-32" y="0.0" width="227" height="33"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <color key="backgroundColor" white="1" alpha="0.0" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                     <fontDescription key="fontDescription" name="Futura-CondensedMedium" family="Futura" pointSize="30"/>
@@ -1358,8 +1358,8 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
+        <segue reference="ubs-wG-ZiZ"/>
         <segue reference="Qgo-vE-l9n"/>
         <segue reference="EnC-ha-Nlr"/>
-        <segue reference="Q2d-Db-Uvw"/>
     </inferredMetricsTieBreakers>
 </document>

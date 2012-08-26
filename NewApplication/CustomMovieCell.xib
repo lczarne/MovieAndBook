@@ -148,7 +148,7 @@
 											<object class="IBUILabel" id="414983011">
 												<reference key="NSNextResponder" ref="362900800"/>
 												<int key="NSvFlags">292</int>
-												<string key="NSFrame">{{20, 15}, {285, 32}}</string>
+												<string key="NSFrame">{{19, 15}, {285, 32}}</string>
 												<reference key="NSSuperview" ref="362900800"/>
 												<reference key="NSWindow"/>
 												<reference key="NSNextKeyView" ref="3485596"/>
@@ -212,7 +212,7 @@
 											<object class="IBUILabel" id="116878881">
 												<reference key="NSNextResponder" ref="362900800"/>
 												<int key="NSvFlags">292</int>
-												<string key="NSFrame">{{96, 82}, {42, 21}}</string>
+												<string key="NSFrame">{{105, 84}, {42, 19}}</string>
 												<reference key="NSSuperview" ref="362900800"/>
 												<reference key="NSWindow"/>
 												<reference key="NSNextKeyView" ref="718653629"/>
@@ -254,7 +254,7 @@
 											<object class="IBUILabel" id="718653629">
 												<reference key="NSNextResponder" ref="362900800"/>
 												<int key="NSvFlags">292</int>
-												<string key="NSFrame">{{97, 99}, {42, 21}}</string>
+												<string key="NSFrame">{{105, 99}, {42, 21}}</string>
 												<reference key="NSSuperview" ref="362900800"/>
 												<reference key="NSWindow"/>
 												<reference key="NSNextKeyView" ref="287687567"/>
@@ -287,7 +287,7 @@
 											<object class="IBUILabel" id="451025962">
 												<reference key="NSNextResponder" ref="362900800"/>
 												<int key="NSvFlags">292</int>
-												<string key="NSFrame">{{20, 99}, {119, 21}}</string>
+												<string key="NSFrame">{{20, 99}, {75, 21}}</string>
 												<reference key="NSSuperview" ref="362900800"/>
 												<reference key="NSWindow"/>
 												<reference key="NSNextKeyView" ref="116878881"/>
@@ -370,7 +370,7 @@
 											</object>
 											<object class="IBUIView" id="1001513005">
 												<reference key="NSNextResponder" ref="362900800"/>
-												<int key="NSvFlags">292</int>
+												<int key="NSvFlags">-2147483356</int>
 												<string key="NSFrameSize">{320, 1}</string>
 												<reference key="NSSuperview" ref="362900800"/>
 												<reference key="NSWindow"/>
