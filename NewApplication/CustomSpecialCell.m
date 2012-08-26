@@ -12,14 +12,15 @@
 @synthesize basicView = _basicView;
 @synthesize detailsView = _detailsView;
 @synthesize mainTitle = _mainTitle;
-@synthesize titleLabel=_titleLabel;
 @synthesize authorLabel=_authorLabel;
 @synthesize staticLabelRating = _staticLabelRating;
 @synthesize ratingLabel=_ratingLabel;
-@synthesize infoLabel=_infoLabel;
 @synthesize dateAddedLabel=_dateAddedLabel;
 @synthesize finishedButton = _finishedButton;
 @synthesize delegate=_delegate;
+@synthesize titleTextView = _titleTextView;
+@synthesize descriptionTextView = _descriptionTextView;
+
 - (IBAction)moveBookToFinished:(UIButton*)sender {
     if (!self.finishedButton.selected){
         self.finishedButton.selected=YES;

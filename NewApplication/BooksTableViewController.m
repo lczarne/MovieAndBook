@@ -287,13 +287,14 @@
         cell.basicView.hidden=YES;
         NSLog(@"detail:%d basic:%d",cell.detailsView.hidden,cell.basicView.hidden);
         
-        cell.titleLabel.text=book.title;
+        cell.titleTextView.text=book.title;
         cell.authorLabel.text=book.author;
+        
         if (![book.info length]) {
-            cell.infoLabel.text=@"no description";
+            cell.descriptionTextView.text=@"no description";
         }
         else{
-            cell.infoLabel.text=book.info;
+            cell.descriptionTextView.text=book.info;
         }
         NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
         [dateFormatter setDateFormat:@"dd MMMM yyyy"];
