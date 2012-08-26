@@ -49,6 +49,11 @@
 @synthesize moviesTableSortType=_moviesTableSortType;
 @synthesize usingDatabase;
 
+- (IBAction)goBack
+{
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
 - (int)moviesTableSortType
 {
     if(_moviesTableSortType){
@@ -148,10 +153,7 @@
 -(void)viewDidLoad
 {
     [super viewDidLoad];
-    self.navigationItem.backBarButtonItem=[[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed: @"back3.png"] 
-                                                                           style:UIBarButtonItemStylePlain 
-                                                                          target:nil 
-                                                                          action:nil];
+
     self.optionsButton.hidden=YES;
     self.addButton.hidden= YES;
     [self.loadingDataIndicator startAnimating];
@@ -186,6 +188,7 @@
 {    
     
     if ([segue.identifier isEqualToString:@"EditCell"]) {
+        self.usingDatabase = YES;
         [segue.destinationViewController setDelegate:self];
         [segue.destinationViewController setMovie:self.selectedMovie];
     }
@@ -206,7 +209,6 @@
     }
     
     else if([segue.identifier isEqualToString:@"AddMovie"]){
-        self.usingDatabase = YES;
         self.usingDatabase = YES;
         if (self.showWatchedMovies) {
             [segue.destinationViewController setWatchedMovies:YES];

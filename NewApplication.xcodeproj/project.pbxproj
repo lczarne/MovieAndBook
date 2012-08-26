@@ -37,6 +37,7 @@
 		2574AC0E15EA502E00AACCB8 /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = 2574AC0D15EA502E00AACCB8 /* Constants.m */; };
 		2574AC1215EA553F00AACCB8 /* dec2.gif in Resources */ = {isa = PBXBuildFile; fileRef = 2574AC1015EA553F00AACCB8 /* dec2.gif */; };
 		2574AC1315EA553F00AACCB8 /* dec1.gif in Resources */ = {isa = PBXBuildFile; fileRef = 2574AC1115EA553F00AACCB8 /* dec1.gif */; };
+		2574AC2315EA707900AACCB8 /* plus.png in Resources */ = {isa = PBXBuildFile; fileRef = 2574AC2215EA707900AACCB8 /* plus.png */; };
 		25863684150B9C5E004D8992 /* bar5.png in Resources */ = {isa = PBXBuildFile; fileRef = 25863683150B9C5E004D8992 /* bar5.png */; };
 		2594199814EC253100472B57 /* BooksTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2594199714EC253100472B57 /* BooksTableViewController.m */; };
 		25A1100214FA821800C2AD58 /* tickets2.png in Resources */ = {isa = PBXBuildFile; fileRef = 25A1100114FA821800C2AD58 /* tickets2.png */; };
@@ -107,6 +108,7 @@
 		2574AC0D15EA502E00AACCB8 /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
 		2574AC1015EA553F00AACCB8 /* dec2.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = dec2.gif; sourceTree = "<group>"; };
 		2574AC1115EA553F00AACCB8 /* dec1.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = dec1.gif; sourceTree = "<group>"; };
+		2574AC2215EA707900AACCB8 /* plus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = plus.png; sourceTree = "<group>"; };
 		25863683150B9C5E004D8992 /* bar5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bar5.png; sourceTree = "<group>"; };
 		2594199614EC253100472B57 /* BooksTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BooksTableViewController.h; sourceTree = "<group>"; };
 		2594199714EC253100472B57 /* BooksTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BooksTableViewController.m; sourceTree = "<group>"; };
@@ -161,6 +163,7 @@
 		250F886B14F186E800417B33 /* New Group */ = {
 			isa = PBXGroup;
 			children = (
+				2574AC2215EA707900AACCB8 /* plus.png */,
 				2574AC1015EA553F00AACCB8 /* dec2.gif */,
 				2574AC1115EA553F00AACCB8 /* dec1.gif */,
 				25863683150B9C5E004D8992 /* bar5.png */,
@@ -357,6 +360,7 @@
 				25863684150B9C5E004D8992 /* bar5.png in Resources */,
 				2574AC1215EA553F00AACCB8 /* dec2.gif in Resources */,
 				2574AC1315EA553F00AACCB8 /* dec1.gif in Resources */,
+				2574AC2315EA707900AACCB8 /* plus.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

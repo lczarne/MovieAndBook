@@ -31,6 +31,11 @@
 
 @synthesize ratingValue=_ratingValue;
 
+- (IBAction)goBack
+{
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
 - (void)setRatingValue:(int)ratingValue
 {
     if (ratingValue != _ratingValue) {

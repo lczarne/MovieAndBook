@@ -293,7 +293,32 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Add Book" id="3Xr-8A-efM"/>
+                    <navigationItem key="navigationItem" title="Add Book" id="3Xr-8A-efM">
+                        <barButtonItem key="leftBarButtonItem" style="plain" id="WXW-xd-ogZ">
+                            <view key="customView" contentMode="scaleToFill" id="qtp-38-PHH">
+                                <rect key="frame" x="5" y="5" width="71" height="33"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Nqa-dM-nD3">
+                                        <rect key="frame" x="7" y="4" width="37" height="23"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                        <state key="normal" image="back3.png">
+                                            <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <state key="highlighted">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="goBack:" destination="Wei-jV-qr8" eventType="touchUpInside" id="TNZ-rL-9aC"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </view>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="authorTextField" destination="MiX-Lr-xDK" id="TdE-I4-CWC"/>
                         <outlet property="descriptionTextField" destination="g4M-WJ-ASd" id="fvf-1E-btp"/>
@@ -373,16 +398,41 @@
                     </tableView>
                     <navigationItem key="navigationItem" id="nh0-xO-90w">
                         <nil key="title"/>
+                        <barButtonItem key="leftBarButtonItem" style="plain" id="VXk-db-EdD">
+                            <view key="customView" contentMode="scaleToFill" id="fAt-RE-0Nu">
+                                <rect key="frame" x="5" y="5" width="71" height="33"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Knx-G1-WHn">
+                                        <rect key="frame" x="7" y="4" width="37" height="23"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                        <state key="normal" image="back3.png">
+                                            <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <state key="highlighted">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="goBack" destination="eRw-mG-9Yt" eventType="touchUpInside" id="4cf-rZ-NF4"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </view>
+                            <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        </barButtonItem>
                         <view key="titleView" alpha="0.0" contentMode="scaleToFill" id="IWT-jP-C4I">
-                            <rect key="frame" x="72" y="3" width="175" height="39"/>
+                            <rect key="frame" x="84" y="3" width="151" height="39"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <view contentMode="scaleToFill" id="RW1-05-YE2">
-                                    <rect key="frame" x="-2" y="0.0" width="180" height="39"/>
+                                    <rect key="frame" x="10" y="0.0" width="130" height="39"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Books" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" id="a0d-MA-g9L">
-                                            <rect key="frame" x="4" y="3" width="172" height="33"/>
+                                            <rect key="frame" x="0.0" y="3" width="130" height="33"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <color key="backgroundColor" white="1" alpha="0.0" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                             <fontDescription key="fontDescription" name="Futura-CondensedMedium" family="Futura" pointSize="30"/>
@@ -406,11 +456,11 @@
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     </activityIndicatorView>
                                     <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="uWX-lf-ogF">
-                                        <rect key="frame" x="-14" y="-6" width="72" height="37"/>
+                                        <rect key="frame" x="5" y="4" width="27" height="24"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="26"/>
-                                        <state key="normal" title="+">
+                                        <state key="normal" image="plus.png">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
@@ -595,7 +645,32 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Edit Book Details" id="EG2-dj-stQ"/>
+                    <navigationItem key="navigationItem" title="Edit Book Details" id="EG2-dj-stQ">
+                        <barButtonItem key="leftBarButtonItem" style="plain" id="2mK-cs-a1z">
+                            <view key="customView" contentMode="scaleToFill" id="GXL-po-aWE">
+                                <rect key="frame" x="5" y="5" width="71" height="33"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="aPT-fU-rqd">
+                                        <rect key="frame" x="7" y="4" width="37" height="23"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                        <state key="normal" image="back3.png">
+                                            <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <state key="highlighted">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="goBack" destination="Kgm-IQ-72x" eventType="touchUpInside" id="lGD-8s-0es"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </view>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="authorField" destination="KZa-Jr-q43" id="X2L-SO-RWq"/>
                         <outlet property="deleteButton" destination="Y8a-bG-7qT" id="ZTf-nd-cyt"/>
@@ -723,7 +798,32 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Add Movie" id="PYD-Aw-lli"/>
+                    <navigationItem key="navigationItem" title="Add Movie" id="PYD-Aw-lli">
+                        <barButtonItem key="leftBarButtonItem" style="plain" id="IqM-XB-5df">
+                            <view key="customView" contentMode="scaleToFill" id="5VT-5H-zFA">
+                                <rect key="frame" x="5" y="5" width="71" height="33"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="eVf-MH-6BQ">
+                                        <rect key="frame" x="7" y="4" width="37" height="23"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                        <state key="normal" image="back3.png">
+                                            <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <state key="highlighted">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="goBack" destination="7LJ-Sw-bM2" eventType="touchUpInside" id="zGe-gg-Zzg"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </view>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="infoField" destination="Jkg-je-h2S" id="Mvg-a4-IkK"/>
                         <outlet property="ratingLabel" destination="gvC-kV-YEy" id="yTs-mO-TmI"/>
@@ -824,8 +924,32 @@
                     </tableView>
                     <navigationItem key="navigationItem" id="dRy-xr-nLl">
                         <nil key="title"/>
+                        <barButtonItem key="leftBarButtonItem" style="plain" id="fx9-m1-xno">
+                            <view key="customView" contentMode="scaleToFill" id="fmI-ci-4CO">
+                                <rect key="frame" x="5" y="5" width="71" height="33"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Jwq-ht-pBI">
+                                        <rect key="frame" x="7" y="4" width="37" height="23"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                        <state key="normal" image="back3.png">
+                                            <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <state key="highlighted">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="goBack" destination="0eJ-Uw-zlL" eventType="touchUpInside" id="ZFI-k4-MB6"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </view>
+                        </barButtonItem>
                         <view key="titleView" alpha="0.0" contentMode="scaleToFill" id="YCt-Ld-sOg">
-                            <rect key="frame" x="71" y="3" width="178" height="39"/>
+                            <rect key="frame" x="84" y="3" width="178" height="39"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <view contentMode="scaleToFill" id="dwY-Nd-fpz">
@@ -1009,7 +1133,32 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Add Movie" id="JhT-fP-1J1"/>
+                    <navigationItem key="navigationItem" title="Add Movie" id="JhT-fP-1J1">
+                        <barButtonItem key="leftBarButtonItem" style="plain" id="ldK-SZ-DQU">
+                            <view key="customView" contentMode="scaleToFill" id="wHW-S5-jpT">
+                                <rect key="frame" x="5" y="5" width="71" height="33"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="9Tx-EJ-zDC">
+                                        <rect key="frame" x="7" y="4" width="37" height="23"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                        <state key="normal" image="back3.png">
+                                            <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <state key="highlighted">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="goBack" destination="0Du-or-8tg" eventType="touchUpInside" id="vAj-F4-Q97"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </view>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="decreaseRatingButton" destination="vKZ-G2-9yr" id="YxS-A8-Sgv"/>
                         <outlet property="deleteButton" destination="G61-e3-X32" id="SkG-xR-22k"/>
@@ -1029,20 +1178,138 @@
     </scenes>
     <resources>
         <image name="abook.png" width="640" height="750"/>
+        <image name="back3.png" width="130" height="80"/>
         <image name="blackCB.png" width="200" height="200"/>
         <image name="cin.png" width="640" height="670"/>
         <image name="cinema.png" width="640" height="832"/>
         <image name="page3.png" width="640" height="832"/>
+        <image name="plus.png" width="76" height="70"/>
         <image name="redCB.png" width="200" height="200"/>
     </resources>
+    <classes>
+        <class className="AddBookViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/AddBookViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="authorTextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="descriptionTextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="ratingLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="ratingMinusButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="ratingPlusButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="ratingSwitch" candidateClass="UISwitch"/>
+                <relationship kind="outlet" name="ratingView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="saveButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="staticLabelRating" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="titleTextField" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+        <class className="AddMovieViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/AddMovieViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="infoField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="ratingLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="ratingMinusButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="ratingPlusButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="ratingSwitch" candidateClass="UISwitch"/>
+                <relationship kind="outlet" name="ratingView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="saveMovieButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="staticLabelRating" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="titleField" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+        <class className="BookDetailsViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/BookDetailsViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="authorField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="deleteButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="infoField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="ratingEditionView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="ratingLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="ratingMinusButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="ratingPlusButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="ratingSwitch" candidateClass="UISwitch"/>
+                <relationship kind="outlet" name="saveButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="staticLabelRating" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="titleField" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+        <class className="BooksTableViewController" superclassName="CoreDataTableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/BooksTableViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="addButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="headerImage" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="loadingDataIndicator" candidateClass="UIActivityIndicatorView"/>
+                <relationship kind="outlet" name="optionsButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="titleLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="ChooseView" superclassName="UIView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ChooseView.h"/>
+        </class>
+        <class className="CircleView" superclassName="UIView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CircleView.h"/>
+        </class>
+        <class className="CoreDataTableViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CoreDataTableViewController.h"/>
+        </class>
+        <class className="CustomNavigationBar" superclassName="UINavigationBar">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CustomNavigationBar.h"/>
+        </class>
+        <class className="MovieDetailsViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MovieDetailsViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="decreaseRatingButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="deleteButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="increaseRatingButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="infoField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="ratingLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="ratingSwitch" candidateClass="UISwitch"/>
+                <relationship kind="outlet" name="ratingView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="saveButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="staticLabelRating" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="titleField" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+        <class className="MoviesTableViewController" superclassName="CoreDataTableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MoviesTableViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="addButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="headerImage" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="loadingDataIndicator" candidateClass="UIActivityIndicatorView"/>
+                <relationship kind="outlet" name="optionsButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="titleLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="NewApplicationViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NewApplicationViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="bookView" candidateClass="CircleView"/>
+                <relationship kind="outlet" name="chooseView" candidateClass="ChooseView"/>
+                <relationship kind="outlet" name="enterView" candidateClass="CircleView"/>
+                <relationship kind="outlet" name="futureView" candidateClass="CircleView"/>
+                <relationship kind="outlet" name="futureViewLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="info" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="instructionLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="movieView" candidateClass="CircleView"/>
+                <relationship kind="outlet" name="pastView" candidateClass="CircleView"/>
+                <relationship kind="outlet" name="pastViewLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="viewAllView" candidateClass="CircleView"/>
+            </relationships>
+        </class>
+        <class className="TableOptionsViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/TableOptionsViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="instructionLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar" statusBarStyle="blackTranslucent"/>
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="EnC-ha-Nlr"/>
-        <segue reference="Qgo-vE-l9n"/>
         <segue reference="ubs-wG-ZiZ"/>
+        <segue reference="Qgo-vE-l9n"/>
+        <segue reference="EnC-ha-Nlr"/>
     </inferredMetricsTieBreakers>
 </document>

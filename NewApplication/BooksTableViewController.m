@@ -47,6 +47,12 @@
 @synthesize booksTableSortAscending=_booksTableSortAscending;
 @synthesize usingDatabase = _usingDatabase;
 
+
+- (IBAction)goBack
+{
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
 - (int)booksTableSortType
 {
     if(_booksTableSortType){
@@ -175,10 +181,7 @@
     
     [super viewDidLoad];
     
-    self.navigationItem.backBarButtonItem=[[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed: @"back3.png"] 
-                                                                           style:UIBarButtonItemStylePlain 
-                                                                          target:nil 
-                                                                          action:nil];
+
     
     self.optionsButton.hidden=YES;
     self.addButton.hidden=YES;
@@ -206,7 +209,6 @@
     [self setTitleLabel:nil];
     [self setHeaderImage:nil];
     [self setLoadingDataIndicator:nil];
-    [self setOptionsButton:nil];
     [self setOptionsButton:nil];
     [self setAddButton:nil];
     [super viewDidUnload];
