@@ -248,13 +248,13 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Author" textAlignment="center" minimumFontSize="17" id="MiX-Lr-xDK">
+                            <textField opaque="NO" clipsSubviews="YES" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Author" textAlignment="center" minimumFontSize="17" id="MiX-Lr-xDK">
                                 <rect key="frame" x="46" y="78" width="229" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Description (optional)" textAlignment="center" minimumFontSize="17" id="g4M-WJ-ASd">
+                            <textField opaque="NO" clipsSubviews="YES" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Description (optional)" textAlignment="center" minimumFontSize="17" id="g4M-WJ-ASd">
                                 <rect key="frame" x="46" y="130" width="229" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -494,7 +494,7 @@
                                 <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Author" textAlignment="center" minimumFontSize="17" id="KZa-Jr-q43">
+                            <textField opaque="NO" clipsSubviews="YES" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Author" textAlignment="center" minimumFontSize="17" id="KZa-Jr-q43">
                                 <rect key="frame" x="23" y="85" width="274" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -502,7 +502,7 @@
                                 <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Description" textAlignment="center" minimumFontSize="17" id="sl7-vi-isx">
+                            <textField opaque="NO" clipsSubviews="YES" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Description" textAlignment="center" minimumFontSize="17" id="sl7-vi-isx">
                                 <rect key="frame" x="23" y="143" width="274" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -682,7 +682,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Description (optional)" textAlignment="center" minimumFontSize="17" id="Jkg-je-h2S">
+                            <textField opaque="NO" clipsSubviews="YES" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Description (optional)" textAlignment="center" minimumFontSize="17" id="Jkg-je-h2S">
                                 <rect key="frame" x="46" y="83" width="229" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -969,7 +969,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Description (optional)" textAlignment="center" minimumFontSize="17" id="aks-fU-rTk">
+                            <textField opaque="NO" clipsSubviews="YES" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Description (optional)" textAlignment="center" minimumFontSize="17" id="aks-fU-rTk">
                                 <rect key="frame" x="46" y="70" width="229" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1035,122 +1035,6 @@
         <image name="page3.png" width="640" height="832"/>
         <image name="redCB.png" width="200" height="200"/>
     </resources>
-    <classes>
-        <class className="AddBookViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/AddBookViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="authorTextField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="descriptionTextField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="ratingLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="ratingMinusButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="ratingPlusButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="ratingSwitch" candidateClass="UISwitch"/>
-                <relationship kind="outlet" name="ratingView" candidateClass="UIView"/>
-                <relationship kind="outlet" name="saveButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="staticLabelRating" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="titleTextField" candidateClass="UITextField"/>
-            </relationships>
-        </class>
-        <class className="AddMovieViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/AddMovieViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="infoField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="ratingLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="ratingMinusButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="ratingPlusButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="ratingSwitch" candidateClass="UISwitch"/>
-                <relationship kind="outlet" name="ratingView" candidateClass="UIView"/>
-                <relationship kind="outlet" name="saveMovieButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="staticLabelRating" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="titleField" candidateClass="UITextField"/>
-            </relationships>
-        </class>
-        <class className="BookDetailsViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/BookDetailsViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="authorField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="deleteButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="infoField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="ratingEditionView" candidateClass="UIView"/>
-                <relationship kind="outlet" name="ratingLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="ratingMinusButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="ratingPlusButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="ratingSwitch" candidateClass="UISwitch"/>
-                <relationship kind="outlet" name="saveButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="staticLabelRating" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="titleField" candidateClass="UITextField"/>
-            </relationships>
-        </class>
-        <class className="BooksTableViewController" superclassName="CoreDataTableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/BooksTableViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="addButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="headerImage" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="loadingDataIndicator" candidateClass="UIActivityIndicatorView"/>
-                <relationship kind="outlet" name="optionsButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="titleLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="ChooseView" superclassName="UIView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ChooseView.h"/>
-        </class>
-        <class className="CircleView" superclassName="UIView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/CircleView.h"/>
-        </class>
-        <class className="CoreDataTableViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/CoreDataTableViewController.h"/>
-        </class>
-        <class className="CustomNavigationBar" superclassName="UINavigationBar">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/CustomNavigationBar.h"/>
-        </class>
-        <class className="MovieDetailsViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MovieDetailsViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="decreaseRatingButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="deleteButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="increaseRatingButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="infoField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="ratingLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="ratingSwitch" candidateClass="UISwitch"/>
-                <relationship kind="outlet" name="ratingView" candidateClass="UIView"/>
-                <relationship kind="outlet" name="saveButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="staticLabelRating" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="titleField" candidateClass="UITextField"/>
-            </relationships>
-        </class>
-        <class className="MoviesTableViewController" superclassName="CoreDataTableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MoviesTableViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="addButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="headerImage" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="loadingDataIndicator" candidateClass="UIActivityIndicatorView"/>
-                <relationship kind="outlet" name="optionsButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="titleLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="NewApplicationViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NewApplicationViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="bookView" candidateClass="CircleView"/>
-                <relationship kind="outlet" name="chooseView" candidateClass="ChooseView"/>
-                <relationship kind="outlet" name="enterView" candidateClass="CircleView"/>
-                <relationship kind="outlet" name="futureView" candidateClass="CircleView"/>
-                <relationship kind="outlet" name="futureViewLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="info" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="instructionLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="movieView" candidateClass="CircleView"/>
-                <relationship kind="outlet" name="pastView" candidateClass="CircleView"/>
-                <relationship kind="outlet" name="pastViewLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="viewAllView" candidateClass="CircleView"/>
-            </relationships>
-        </class>
-        <class className="TableOptionsViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/TableOptionsViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="instructionLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar" statusBarStyle="blackTranslucent"/>
         <simulatedOrientationMetrics key="orientation"/>

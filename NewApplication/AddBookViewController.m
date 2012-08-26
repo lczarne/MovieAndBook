@@ -8,6 +8,7 @@
 
 #import "AddBookViewController.h"
 #import "Book+CreatingDeleting.h"
+#import "Constants.h"
 
 @interface AddBookViewController()
 @property (nonatomic) int ratingValue;
@@ -205,6 +206,33 @@
 {
     // Return YES for supported orientations
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
+}
+
+
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
+{
+    NSInteger insertDelta = string.length - range.length;
+    
+    int maxLength = 100;
+    switch (textField.tag) {
+        case 0:
+            maxLength = k_MAX_TITLE_LENGTH;
+            break;
+        case 1:
+            maxLength = k_MAX_AUTHOR_LENGTH;
+            break;
+        case 2:
+            maxLength = k_MAX_DESCRIPTION_LENGTH;
+            break;
+    }
+    
+    if (textField.text.length + insertDelta > maxLength)
+    {
+        return NO; // the new string would be longer than MAX_LENGTH
+    }
+    else {
+        return YES;
+    }
 }
 
 @end

@@ -8,6 +8,7 @@
 
 #import "AddMovieViewController.h"
 #import "Movie+CreatingDeleting.h"
+#import "Constants.h"
 
 @interface AddMovieViewController()
 @property (nonatomic) int ratingValue;
@@ -138,6 +139,29 @@
 	// the user pressed the "Done" button, so dismiss the keyboard
 	[textField resignFirstResponder];
 	return YES;
+}
+
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
+{
+    NSInteger insertDelta = string.length - range.length;
+    
+    int maxLength = 100;
+    switch (textField.tag) {
+        case 0:
+            maxLength = k_MAX_TITLE_LENGTH;
+            break;
+        case 2:
+            maxLength = k_MAX_DESCRIPTION_LENGTH;
+            break;
+    }
+    
+    if (textField.text.length + insertDelta > maxLength)
+    {
+        return NO; // the new string would be longer than MAX_LENGTH
+    }
+    else {
+        return YES;
+    }
 }
 
 #pragma mark - View lifecycle

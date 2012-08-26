@@ -34,6 +34,9 @@
 		2570AB8514E9F55D005C48E1 /* Book.m in Sources */ = {isa = PBXBuildFile; fileRef = 2570AB8414E9F55C005C48E1 /* Book.m */; };
 		2570AB8814E9F55D005C48E1 /* Movie.m in Sources */ = {isa = PBXBuildFile; fileRef = 2570AB8714E9F55D005C48E1 /* Movie.m */; };
 		2570AB8A14E9FDC3005C48E1 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2570AB8914E9FDC3005C48E1 /* CoreData.framework */; };
+		2574AC0E15EA502E00AACCB8 /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = 2574AC0D15EA502E00AACCB8 /* Constants.m */; };
+		2574AC1215EA553F00AACCB8 /* dec2.gif in Resources */ = {isa = PBXBuildFile; fileRef = 2574AC1015EA553F00AACCB8 /* dec2.gif */; };
+		2574AC1315EA553F00AACCB8 /* dec1.gif in Resources */ = {isa = PBXBuildFile; fileRef = 2574AC1115EA553F00AACCB8 /* dec1.gif */; };
 		25863684150B9C5E004D8992 /* bar5.png in Resources */ = {isa = PBXBuildFile; fileRef = 25863683150B9C5E004D8992 /* bar5.png */; };
 		2594199814EC253100472B57 /* BooksTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2594199714EC253100472B57 /* BooksTableViewController.m */; };
 		25A1100214FA821800C2AD58 /* tickets2.png in Resources */ = {isa = PBXBuildFile; fileRef = 25A1100114FA821800C2AD58 /* tickets2.png */; };
@@ -100,6 +103,10 @@
 		2570AB8614E9F55D005C48E1 /* Movie.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Movie.h; sourceTree = "<group>"; };
 		2570AB8714E9F55D005C48E1 /* Movie.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Movie.m; sourceTree = "<group>"; };
 		2570AB8914E9FDC3005C48E1 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		2574AC0C15EA502E00AACCB8 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
+		2574AC0D15EA502E00AACCB8 /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
+		2574AC1015EA553F00AACCB8 /* dec2.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = dec2.gif; sourceTree = "<group>"; };
+		2574AC1115EA553F00AACCB8 /* dec1.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = dec1.gif; sourceTree = "<group>"; };
 		25863683150B9C5E004D8992 /* bar5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bar5.png; sourceTree = "<group>"; };
 		2594199614EC253100472B57 /* BooksTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BooksTableViewController.h; sourceTree = "<group>"; };
 		2594199714EC253100472B57 /* BooksTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BooksTableViewController.m; sourceTree = "<group>"; };
@@ -154,6 +161,8 @@
 		250F886B14F186E800417B33 /* New Group */ = {
 			isa = PBXGroup;
 			children = (
+				2574AC1015EA553F00AACCB8 /* dec2.gif */,
+				2574AC1115EA553F00AACCB8 /* dec1.gif */,
 				25863683150B9C5E004D8992 /* bar5.png */,
 				255CD0731507CE220077373A /* bar1.png */,
 				255CD0691507C2B20077373A /* cin.png */,
@@ -266,6 +275,8 @@
 				25CAA0AF14E596360096980D /* InfoPlist.strings */,
 				25CAA0B214E596360096980D /* main.m */,
 				25CAA0B414E596360096980D /* NewApplication-Prefix.pch */,
+				2574AC0C15EA502E00AACCB8 /* Constants.h */,
+				2574AC0D15EA502E00AACCB8 /* Constants.m */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -344,6 +355,8 @@
 				255CD0721507C3020077373A /* redCB.png in Resources */,
 				255CD0741507CE220077373A /* bar1.png in Resources */,
 				25863684150B9C5E004D8992 /* bar5.png in Resources */,
+				2574AC1215EA553F00AACCB8 /* dec2.gif in Resources */,
+				2574AC1315EA553F00AACCB8 /* dec1.gif in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -376,6 +389,7 @@
 				250D655A14FA9D6B00ED0825 /* MoviesTableViewController.m in Sources */,
 				250D655E14FAFC0300ED0825 /* CustomMovieCell.m in Sources */,
 				2536E0701505B3950080B43C /* TableOptionsViewController.m in Sources */,
+				2574AC0E15EA502E00AACCB8 /* Constants.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
