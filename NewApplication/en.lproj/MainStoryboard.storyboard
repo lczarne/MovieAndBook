@@ -183,7 +183,7 @@
             </objects>
             <point key="canvasLocation" x="182" y="231"/>
         </scene>
-        <!--Add Book View Controller - Add Book-->
+        <!--Add Book View Controller-->
         <scene sceneID="px6-i5-EoD">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pYx-eh-fFu" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -293,7 +293,8 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Add Book" id="3Xr-8A-efM">
+                    <navigationItem key="navigationItem" id="3Xr-8A-efM">
+                        <nil key="title"/>
                         <barButtonItem key="leftBarButtonItem" style="plain" id="WXW-xd-ogZ">
                             <view key="customView" contentMode="scaleToFill" id="qtp-38-PHH">
                                 <rect key="frame" x="5" y="5" width="71" height="33"/>
@@ -318,6 +319,21 @@
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
                         </barButtonItem>
+                        <view key="titleView" contentMode="scaleToFill" id="Wb8-gt-khh">
+                            <rect key="frame" x="96" y="6" width="128" height="33"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Add Book" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" id="qDs-fX-o6i">
+                                    <rect key="frame" x="-1" y="0.0" width="130" height="38"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <color key="backgroundColor" white="1" alpha="0.0" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                    <fontDescription key="fontDescription" name="Futura-CondensedMedium" family="Futura" pointSize="30"/>
+                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        </view>
                     </navigationItem>
                     <connections>
                         <outlet property="authorTextField" destination="MiX-Lr-xDK" id="TdE-I4-CWC"/>
@@ -427,21 +443,14 @@
                             <rect key="frame" x="84" y="3" width="151" height="39"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
-                                <view contentMode="scaleToFill" id="RW1-05-YE2">
-                                    <rect key="frame" x="10" y="0.0" width="130" height="39"/>
+                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Books" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" id="a0d-MA-g9L">
+                                    <rect key="frame" x="10" y="3" width="130" height="33"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <subviews>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Books" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" id="a0d-MA-g9L">
-                                            <rect key="frame" x="0.0" y="3" width="130" height="33"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <color key="backgroundColor" white="1" alpha="0.0" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                                            <fontDescription key="fontDescription" name="Futura-CondensedMedium" family="Futura" pointSize="30"/>
-                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                    </subviews>
                                     <color key="backgroundColor" white="1" alpha="0.0" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                                </view>
+                                    <fontDescription key="fontDescription" name="Futura-CondensedMedium" family="Futura" pointSize="30"/>
+                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="0.0" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         </view>
@@ -516,7 +525,7 @@
             </objects>
             <point key="canvasLocation" x="1814" y="287"/>
         </scene>
-        <!--Book Details View Controller - Edit Book Details-->
+        <!--Book Details View Controller-->
         <scene sceneID="8NH-CR-BBd">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fGl-4m-LVa" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -645,7 +654,8 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Edit Book Details" id="EG2-dj-stQ">
+                    <navigationItem key="navigationItem" id="EG2-dj-stQ">
+                        <nil key="title"/>
                         <barButtonItem key="leftBarButtonItem" style="plain" id="2mK-cs-a1z">
                             <view key="customView" contentMode="scaleToFill" id="GXL-po-aWE">
                                 <rect key="frame" x="5" y="5" width="71" height="33"/>
@@ -670,6 +680,21 @@
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
                         </barButtonItem>
+                        <view key="titleView" contentMode="scaleToFill" id="dqg-cn-6pv">
+                            <rect key="frame" x="84" y="6" width="192" height="33"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Edit Book Details" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" id="yoP-4C-Xd0">
+                                    <rect key="frame" x="-7" y="0.0" width="172" height="33"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <color key="backgroundColor" white="1" alpha="0.0" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                    <fontDescription key="fontDescription" name="Futura-CondensedMedium" family="Futura" pointSize="30"/>
+                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        </view>
                     </navigationItem>
                     <connections>
                         <outlet property="authorField" destination="KZa-Jr-q43" id="X2L-SO-RWq"/>
@@ -688,7 +713,7 @@
             </objects>
             <point key="canvasLocation" x="1440" y="-7"/>
         </scene>
-        <!--Add Movie View Controller - Add Movie-->
+        <!--Add Movie View Controller-->
         <scene sceneID="Z2F-Jg-bpV">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5pk-2d-Ngx" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -798,7 +823,8 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Add Movie" id="PYD-Aw-lli">
+                    <navigationItem key="navigationItem" id="PYD-Aw-lli">
+                        <nil key="title"/>
                         <barButtonItem key="leftBarButtonItem" style="plain" id="IqM-XB-5df">
                             <view key="customView" contentMode="scaleToFill" id="5VT-5H-zFA">
                                 <rect key="frame" x="5" y="5" width="71" height="33"/>
@@ -823,6 +849,21 @@
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
                         </barButtonItem>
+                        <view key="titleView" contentMode="scaleToFill" id="S6u-4B-VF5">
+                            <rect key="frame" x="96" y="6" width="128" height="33"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Add Movie" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" id="dTh-Y4-Ubu">
+                                    <rect key="frame" x="-1" y="-2" width="130" height="38"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <color key="backgroundColor" white="1" alpha="0.0" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                    <fontDescription key="fontDescription" name="Futura-CondensedMedium" family="Futura" pointSize="30"/>
+                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        </view>
                     </navigationItem>
                     <connections>
                         <outlet property="infoField" destination="Jkg-je-h2S" id="Mvg-a4-IkK"/>
@@ -949,24 +990,17 @@
                             </view>
                         </barButtonItem>
                         <view key="titleView" alpha="0.0" contentMode="scaleToFill" id="YCt-Ld-sOg">
-                            <rect key="frame" x="84" y="3" width="178" height="39"/>
+                            <rect key="frame" x="84" y="3" width="179" height="39"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
-                                <view contentMode="scaleToFill" id="dwY-Nd-fpz">
-                                    <rect key="frame" x="-2" y="0.0" width="180" height="39"/>
+                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Movies" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" id="qOK-vT-x9C">
+                                    <rect key="frame" x="-12" y="0.0" width="177" height="38"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <subviews>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Movies" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" id="qOK-vT-x9C">
-                                            <rect key="frame" x="4" y="3" width="172" height="38"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <color key="backgroundColor" white="1" alpha="0.0" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                                            <fontDescription key="fontDescription" name="Futura-CondensedMedium" family="Futura" pointSize="30"/>
-                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                    </subviews>
                                     <color key="backgroundColor" white="1" alpha="0.0" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                                </view>
+                                    <fontDescription key="fontDescription" name="Futura-CondensedMedium" family="Futura" pointSize="30"/>
+                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="0.0" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         </view>
@@ -1013,7 +1047,7 @@
             </objects>
             <point key="canvasLocation" x="979" y="543"/>
         </scene>
-        <!--Movie Details View Controller - Add Movie-->
+        <!--Movie Details View Controller-->
         <scene sceneID="Cmc-3Y-vps">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ELM-bX-MBk" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1133,7 +1167,8 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Add Movie" id="JhT-fP-1J1">
+                    <navigationItem key="navigationItem" id="JhT-fP-1J1">
+                        <nil key="title"/>
                         <barButtonItem key="leftBarButtonItem" style="plain" id="ldK-SZ-DQU">
                             <view key="customView" contentMode="scaleToFill" id="wHW-S5-jpT">
                                 <rect key="frame" x="5" y="5" width="71" height="33"/>
@@ -1158,6 +1193,21 @@
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
                         </barButtonItem>
+                        <view key="titleView" contentMode="scaleToFill" id="Ilz-mJ-I0T">
+                            <rect key="frame" x="84" y="6" width="231" height="33"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Edit Movie Details" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" id="Lvg-ku-2vN">
+                                    <rect key="frame" x="-32" y="-2" width="227" height="38"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <color key="backgroundColor" white="1" alpha="0.0" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                    <fontDescription key="fontDescription" name="Futura-CondensedMedium" family="Futura" pointSize="30"/>
+                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        </view>
                     </navigationItem>
                     <connections>
                         <outlet property="decreaseRatingButton" destination="vKZ-G2-9yr" id="YxS-A8-Sgv"/>
