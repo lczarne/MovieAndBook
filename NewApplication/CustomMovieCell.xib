@@ -78,13 +78,13 @@
 												<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 												<object class="NSCustomResource" key="IBUIImage">
 													<string key="NSClassName">NSImage</string>
-													<string key="NSResourceName">tickets2.png</string>
+													<string key="NSResourceName">tickets4.png</string>
 												</object>
 											</object>
 											<object class="IBUILabel" id="322285567">
 												<reference key="NSNextResponder" ref="91278848"/>
 												<int key="NSvFlags">292</int>
-												<string key="NSFrame">{{33, 13}, {223, 29}}</string>
+												<string key="NSFrame">{{58, 13}, {196, 29}}</string>
 												<reference key="NSSuperview" ref="91278848"/>
 												<reference key="NSWindow"/>
 												<reference key="NSNextKeyView" ref="56852477"/>
@@ -340,6 +340,7 @@
 												<string key="NSFrame">{{248, 73}, {58, 58}}</string>
 												<reference key="NSSuperview" ref="362900800"/>
 												<reference key="NSWindow"/>
+												<reference key="NSNextKeyView"/>
 												<string key="NSReuseIdentifierKey">_NS:225</string>
 												<bool key="IBUIOpaque">NO</bool>
 												<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
@@ -801,7 +802,7 @@
 		<dictionary class="NSMutableDictionary" key="IBDocument.LastKnownImageSizes">
 			<string key="blueCB.png">{200, 200}</string>
 			<string key="smallCinema2.png">{640, 358}</string>
-			<string key="tickets2.png">{640, 90}</string>
+			<string key="tickets4.png">{640, 90}</string>
 		</dictionary>
 		<string key="IBCocoaTouchPluginVersion">1181</string>
 	</data>

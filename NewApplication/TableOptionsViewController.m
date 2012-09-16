@@ -13,7 +13,7 @@
 @synthesize instructionLabel = _instructionLabel;
 @synthesize selectedSortType=_selectedSortType;
 @synthesize delegate=_delegate;
-#define SEGMENT_WIDTH 65
+#define SEGMENT_WIDTH 85
 #define SEGMENT_HEIGHT 30
 #define SEGMENT_CONTROL_Y 330
 

@@ -15,6 +15,8 @@
 		251FD3551501A1870071E6E8 /* iconC2.png in Resources */ = {isa = PBXBuildFile; fileRef = 251FD3541501A1870071E6E8 /* iconC2.png */; };
 		251FD3591501AE900071E6E8 /* bar2.png in Resources */ = {isa = PBXBuildFile; fileRef = 251FD3581501AE900071E6E8 /* bar2.png */; };
 		251FD35B1501AEFD0071E6E8 /* bar3.png in Resources */ = {isa = PBXBuildFile; fileRef = 251FD35A1501AEFD0071E6E8 /* bar3.png */; };
+		252798B416067CF000B51378 /* cinemaBig.png in Resources */ = {isa = PBXBuildFile; fileRef = 252798B316067CF000B51378 /* cinemaBig.png */; };
+		252798B71606818700B51378 /* tickets4.png in Resources */ = {isa = PBXBuildFile; fileRef = 252798B61606818600B51378 /* tickets4.png */; };
 		2536E0701505B3950080B43C /* TableOptionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2536E06F1505B3950080B43C /* TableOptionsViewController.m */; };
 		255CD0671507C29E0077373A /* tape.png in Resources */ = {isa = PBXBuildFile; fileRef = 255CD0661507C29E0077373A /* tape.png */; };
 		255CD06A1507C2B20077373A /* cin.png in Resources */ = {isa = PBXBuildFile; fileRef = 255CD0691507C2B20077373A /* cin.png */; };
@@ -76,6 +78,8 @@
 		251FD3541501A1870071E6E8 /* iconC2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iconC2.png; sourceTree = "<group>"; };
 		251FD3581501AE900071E6E8 /* bar2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = bar2.png; path = ../../../../Users/lczarne/Desktop/iosDev/mb/bar2.png; sourceTree = "<group>"; };
 		251FD35A1501AEFD0071E6E8 /* bar3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = bar3.png; path = ../../../../Users/lczarne/Desktop/iosDev/mb/bar3.png; sourceTree = "<group>"; };
+		252798B316067CF000B51378 /* cinemaBig.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cinemaBig.png; sourceTree = "<group>"; };
+		252798B61606818600B51378 /* tickets4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tickets4.png; sourceTree = "<group>"; };
 		2536E06F1505B3950080B43C /* TableOptionsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableOptionsViewController.m; sourceTree = "<group>"; };
 		2536E0721505B3A60080B43C /* TableOptionsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableOptionsViewController.h; sourceTree = "<group>"; };
 		255CD0661507C29E0077373A /* tape.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tape.png; sourceTree = "<group>"; };
@@ -167,6 +171,8 @@
 		250F886B14F186E800417B33 /* New Group */ = {
 			isa = PBXGroup;
 			children = (
+				252798B61606818600B51378 /* tickets4.png */,
+				252798B316067CF000B51378 /* cinemaBig.png */,
 				2583264415EADB29008C7620 /* arrow.png */,
 				2583264515EADB29008C7620 /* plus2.png */,
 				2574AC2215EA707900AACCB8 /* plus.png */,
@@ -369,6 +375,8 @@
 				2574AC2315EA707900AACCB8 /* plus.png in Resources */,
 				2583264615EADB29008C7620 /* arrow.png in Resources */,
 				2583264715EADB29008C7620 /* plus2.png in Resources */,
+				252798B416067CF000B51378 /* cinemaBig.png in Resources */,
+				252798B71606818700B51378 /* tickets4.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
