@@ -36,7 +36,7 @@
 {
     UIImage *image = [UIImage imageNamed: @"bar5.png"];
    // [image drawInRect:CGRectMake(0, 0, self.frame.size.width, self.frame.size.height)];
-    [image drawInRect:CGRectMake(0, 0, self.frame.size.width, self.frame.size.height) blendMode:kCGBlendModeOverlay alpha:0.5];
+    [image drawInRect:CGRectMake(0, 0, self.frame.size.width, self.frame.size.height) blendMode:kCGBlendModeOverlay alpha:1];
 }
 
 @end

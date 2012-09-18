@@ -49,7 +49,7 @@
 {
     if (ratingValue != _ratingValue) {
         _ratingValue=ratingValue;
-        self.ratingLabel.text=[NSString stringWithFormat:@"%d",self.ratingValue];
+        self.ratingLabel.text=[NSString stringWithFormat:@"%d/10",self.ratingValue];
     }
 }
 

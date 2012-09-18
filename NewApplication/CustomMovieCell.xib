@@ -114,6 +114,7 @@
 													<double key="NSSize">23</double>
 													<int key="NSfFlags">16</int>
 												</object>
+												<bool key="IBUIAdjustsFontSizeToFit">NO</bool>
 											</object>
 										</array>
 										<string key="NSFrameSize">{320, 56}</string>
@@ -148,7 +149,7 @@
 											<object class="IBUILabel" id="414983011">
 												<reference key="NSNextResponder" ref="362900800"/>
 												<int key="NSvFlags">292</int>
-												<string key="NSFrame">{{19, 15}, {285, 32}}</string>
+												<string key="NSFrame">{{19, 13}, {285, 32}}</string>
 												<reference key="NSSuperview" ref="362900800"/>
 												<reference key="NSWindow"/>
 												<reference key="NSNextKeyView" ref="3485596"/>
@@ -337,7 +338,7 @@
 											<object class="IBUIButton" id="245870594">
 												<reference key="NSNextResponder" ref="362900800"/>
 												<int key="NSvFlags">292</int>
-												<string key="NSFrame">{{248, 73}, {58, 58}}</string>
+												<string key="NSFrame">{{247, 74}, {58, 58}}</string>
 												<reference key="NSSuperview" ref="362900800"/>
 												<reference key="NSWindow"/>
 												<reference key="NSNextKeyView"/>
@@ -353,9 +354,9 @@
 													<int key="NSColorSpace">3</int>
 													<bytes key="NSWhite">MC41AA</bytes>
 												</object>
-												<object class="NSCustomResource" key="IBUINormalBackgroundImage" id="647187678">
+												<object class="NSCustomResource" key="IBUINormalBackgroundImage" id="758379433">
 													<string key="NSClassName">NSImage</string>
-													<string key="NSResourceName">blueCB.png</string>
+													<string key="NSResourceName">bt_blu.png</string>
 												</object>
 												<object class="IBUIFontDescription" key="IBUIFontDescription" id="962135255">
 													<string key="name">Futura-CondensedMedium</string>
@@ -386,7 +387,7 @@
 											<object class="IBUIButton" id="287687567">
 												<reference key="NSNextResponder" ref="362900800"/>
 												<int key="NSvFlags">292</int>
-												<string key="NSFrame">{{177, 73}, {58, 58}}</string>
+												<string key="NSFrame">{{176, 75}, {58, 58}}</string>
 												<reference key="NSSuperview" ref="362900800"/>
 												<reference key="NSWindow"/>
 												<reference key="NSNextKeyView" ref="245870594"/>
@@ -399,7 +400,7 @@
 												<reference key="IBUIHighlightedTitleColor" ref="892983311"/>
 												<reference key="IBUINormalTitleColor" ref="892983311"/>
 												<reference key="IBUINormalTitleShadowColor" ref="89717828"/>
-												<reference key="IBUINormalBackgroundImage" ref="647187678"/>
+												<reference key="IBUINormalBackgroundImage" ref="758379433"/>
 												<reference key="IBUIFontDescription" ref="962135255"/>
 												<reference key="IBUIFont" ref="526251071"/>
 											</object>
@@ -800,7 +801,7 @@
 		<bool key="IBDocument.PluginDeclaredDependenciesTrackSystemTargetVersion">YES</bool>
 		<int key="IBDocument.defaultPropertyAccessControl">3</int>
 		<dictionary class="NSMutableDictionary" key="IBDocument.LastKnownImageSizes">
-			<string key="blueCB.png">{200, 200}</string>
+			<string key="bt_blu.png">{120, 120}</string>
 			<string key="smallCinema2.png">{640, 358}</string>
 			<string key="tickets4.png">{640, 90}</string>
 		</dictionary>
