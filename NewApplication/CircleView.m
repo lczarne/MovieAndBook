@@ -47,15 +47,10 @@
     midPoint.x = self.bounds.origin.x + self.bounds.size.width/2;
     midPoint.y = self.bounds.origin.y + self.bounds.size.height/2;
     
-    NSLog(@"rysowanie x, %f",midPoint.x);
-    NSLog(@"rysowanie y , %f",midPoint.y);
-    
     CGFloat size = self.bounds.size.width;  
     if (size>self.bounds.size.height) size=self.bounds.size.height;
     size /=2;
     size *=0.95;
-    NSLog(@"rysowanie size, %f",size);
-
     
     [self drawCircleAtPoint:midPoint withRadius:size inContext:context];
 }

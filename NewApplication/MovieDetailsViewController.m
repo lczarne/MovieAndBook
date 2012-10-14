@@ -120,10 +120,8 @@
 
 -(void)viewWillAppear:(BOOL)animated
 {
-    NSLog(@"didLoad %@",self.movie);
     self.titleField.text=self.movie.title;
     self.infoField.text= self.movie.info;
-    NSLog(@"watched %d",self.movie.watched.intValue);
     if (self.movie.watched.boolValue==YES){
         self.ratingValue=self.movie.rating.intValue;
         if (self.ratingValue==0) {

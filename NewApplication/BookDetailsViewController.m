@@ -111,7 +111,6 @@
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
-    NSLog(@"initWithNibName Start");
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
@@ -124,11 +123,9 @@
 
 -(void)viewWillAppear:(BOOL)animated
 {
-    NSLog(@"didLoad %@",self.book);
     self.titleField.text=self.book.title;
     self.authorField.text=self.book.author;
     self.infoField.text= self.book.info;
-    NSLog(@"finished %d",self.book.finished.intValue);
     if (self.book.finished.boolValue==YES){
         self.ratingValue=self.book.rating.intValue;
         if (self.ratingValue==0) {

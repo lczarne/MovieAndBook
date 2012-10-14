@@ -94,7 +94,6 @@
 
 - (void)setupFetchedResultsController
 {
-    NSLog(@"setupFetchedResultsController");
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Movie"];
     request.predicate = [NSPredicate predicateWithFormat:@"watched == %@",[NSNumber numberWithBool:self.showWatchedMovies]];
     //request.predicate = [NSPredicate predicateWithFormat:@"finished == YES"];
@@ -110,19 +109,16 @@
 - (void)useDocument
 {
     if (![[NSFileManager defaultManager] fileExistsAtPath:[self.dataBase.fileURL path]]) {
-       // NSLog(@"db exists");
         [self.dataBase saveToURL:self.dataBase.fileURL forSaveOperation:UIDocumentSaveForCreating completionHandler:^(BOOL success){
             [self setupFetchedResultsController];
             //  [self insertDataIntoDocument:self.dataBase];
         }];
     } else if (self.dataBase.documentState ==UIDocumentStateClosed){
-     //   NSLog(@"closed");
         [self.dataBase openWithCompletionHandler:^(BOOL suucess){
             [self setupFetchedResultsController];
             //  [self insertDataIntoDocument:self.dataBase];
         }];
     } else if (self.dataBase.documentState ==UIDocumentStateNormal){
-     //   NSLog(@"normal");
         [self setupFetchedResultsController];
     }
 }
@@ -142,7 +138,6 @@
     [super viewWillAppear:animated];
     
     if (!self.dataBase) {
-        NSLog(@"niemaDATABASE");
         NSURL *url= [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDirectory] lastObject];
         url = [url URLByAppendingPathComponent:@"MovieBooksDatabase"];
         self.dataBase = [[UIManagedDocument alloc] initWithFileURL:url];
@@ -221,6 +216,11 @@
     }
 }
 
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
+{
+    // Return YES for supported orientations
+    return (interfaceOrientation==UIInterfaceOrientationPortrait);
+}
 
 #pragma mark - Table view delegate
 
@@ -249,7 +249,6 @@
         
         cell.detailsView.hidden=NO;
         cell.basicView.hidden=YES;
-        NSLog(@"detail:%d basic:%d",cell.detailsView.hidden,cell.basicView.hidden);
         
         cell.titleDetailsLabel.text =movie.title;
         if (![movie.info length]) {
@@ -261,7 +260,6 @@
         NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
         [dateFormatter setDateFormat:@"dd MMMM yyyy"];
         NSString *textDate = [NSString stringWithFormat:@"%@",[dateFormatter stringFromDate:movie.dateAdded]];
-        NSLog(@"%@",textDate);
         cell.dateAddedLabel.text=textDate;
         
         if (self.showWatchedMovies) {
@@ -385,9 +383,7 @@
 
 - (void)editCell:(CustomMovieCell *)sender
 {
-    NSLog(@"performSeg Start");
     [self performSegueWithIdentifier:@"EditCell" sender:self];
-    NSLog(@"performSeg End");
 }
 
 - (void)moveSelectedMovieToWatched:(CustomMovieCell *)sender

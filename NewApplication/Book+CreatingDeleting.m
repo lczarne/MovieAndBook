@@ -25,7 +25,6 @@ inManagedObjectContext:(NSManagedObjectContext *)context
     book.info=info;
     book.finished=[NSNumber numberWithBool:finished];
     book.dateAdded=[NSDate date];
-    NSLog(@"book CREATED");
     return book;
 }
 

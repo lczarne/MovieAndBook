@@ -94,7 +94,6 @@
 
 - (void)setupFetchedResultsController
 {
-    NSLog(@"setupFetchedResultsController");
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Book"];
     request.predicate = [NSPredicate predicateWithFormat:@"finished == %@",[NSNumber numberWithBool:self.showFinishedBooks]];
     //request.predicate = [NSPredicate predicateWithFormat:@"finished == YES"];
@@ -111,7 +110,6 @@
 - (void)insertDataIntoDocument:(UIManagedDocument *)document
 {
     
-    NSLog(@"insertingDATA");
     [Book bookWithTitle:@"Potop" Author:@"Henryk Sienkiewicz" Rating:[NSNumber numberWithInt:5] Info:@"dodatkowy opis" Finished:YES inManagedObjectContext:document.managedObjectContext];
     dispatch_queue_t insertingDataQ = dispatch_queue_create("Inserting Data", NULL);
     dispatch_async(insertingDataQ, ^{
@@ -128,19 +126,15 @@
 - (void)useDocument
 {
     if (![[NSFileManager defaultManager] fileExistsAtPath:[self.dataBase.fileURL path]]) {
-       // NSLog(@"db exists");
         [self.dataBase saveToURL:self.dataBase.fileURL forSaveOperation:UIDocumentSaveForCreating completionHandler:^(BOOL success){
             [self setupFetchedResultsController];
-            //  [self insertDataIntoDocument:self.dataBase];
         }];
     } else if (self.dataBase.documentState ==UIDocumentStateClosed){
-       // NSLog(@"closed");
         [self.dataBase openWithCompletionHandler:^(BOOL suucess){
             [self setupFetchedResultsController];
             //  [self insertDataIntoDocument:self.dataBase];
         }];
     } else if (self.dataBase.documentState ==UIDocumentStateNormal){
-      //  NSLog(@"normal");
         [self setupFetchedResultsController];
     }
 }
@@ -165,7 +159,6 @@
     
     
     if (!self.dataBase) {
-        NSLog(@"niemaDATABASE");
         NSURL *url= [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDirectory] lastObject];
         url = [url URLByAppendingPathComponent:@"MovieBooksDatabase"];
         self.dataBase = [[UIManagedDocument alloc] initWithFileURL:url];
@@ -255,7 +248,7 @@
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     // Return YES for supported orientations
-    return UIInterfaceOrientationPortrait;
+    return (interfaceOrientation==UIInterfaceOrientationPortrait);
 }
 
 #pragma mark - Table view delegate
@@ -285,7 +278,6 @@
         
         cell.detailsView.hidden=NO;
         cell.basicView.hidden=YES;
-        NSLog(@"detail:%d basic:%d",cell.detailsView.hidden,cell.basicView.hidden);
         
         cell.titleTextView.text=book.title;
         cell.authorLabel.text=book.author;
@@ -299,7 +291,6 @@
         NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
         [dateFormatter setDateFormat:@"dd MMMM yyyy"];
         NSString *textDate = [NSString stringWithFormat:@"%@",[dateFormatter stringFromDate:book.dateAdded]];
-        NSLog(@"%@",textDate);
         cell.dateAddedLabel.text=textDate;
         
         if (self.showFinishedBooks) {
@@ -421,9 +412,7 @@
 #pragma mark - customSpecialCellDelegate
 - (void)editCell:(CustomSpecialCell *)sender
 {
-    NSLog(@"performSeg Start");
     [self performSegueWithIdentifier:@"EditCell" sender:self];
-    NSLog(@"performSeg End");
 }
 
 - (void)moveSelectedBookToFinished:(CustomSpecialCell*)sender{

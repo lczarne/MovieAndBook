@@ -1,15 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="1.1" toolsVersion="2182" systemVersion="11D50d" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="Rvj-pb-dDP">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2843" systemVersion="11G63" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="Rvj-pb-dDP">
     <dependencies>
-        <deployment defaultVersion="1296" identifier="iOS"/>
-        <development defaultVersion="4200" identifier="xcode"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1181"/>
+        <deployment defaultVersion="1536" identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1929"/>
     </dependencies>
     <scenes>
         <!--New Application View Controller-->
         <scene sceneID="5">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="4" sceneMemberID="firstResponder"/>
                 <viewController id="2" customClass="NewApplicationViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3">
                         <rect key="frame" x="0.0" y="64" width="320" height="416"/>
@@ -26,7 +24,7 @@
                                     </view>
                                     <view alpha="0.0" contentMode="scaleToFill" id="Y4d-Uc-8rT" customClass="CircleView">
                                         <rect key="frame" x="40" y="165" width="100" height="100"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <subviews>
                                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Watched" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" id="4in-MO-SF4">
                                                 <rect key="frame" x="-9" y="18" width="119" height="64"/>
@@ -40,7 +38,7 @@
                                     </view>
                                     <view contentMode="scaleToFill" id="4pg-7Z-yy5" customClass="CircleView">
                                         <rect key="frame" x="180" y="165" width="100" height="100"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                                         <subviews>
                                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Future" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" id="TTL-BG-PhA">
                                                 <rect key="frame" x="3" y="10" width="95" height="80"/>
@@ -82,7 +80,7 @@
                                     </view>
                                     <view contentMode="scaleToFill" id="agH-WF-Ian" customClass="CircleView">
                                         <rect key="frame" x="180" y="279" width="100" height="100"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <subviews>
                                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Books" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" id="cIy-XP-hKA">
                                                 <rect key="frame" x="13" y="10" width="75" height="79"/>
@@ -97,7 +95,7 @@
                                     </view>
                                     <view contentMode="scaleToFill" id="dXe-Ha-9HL" customClass="CircleView">
                                         <rect key="frame" x="40" y="279" width="100" height="100"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <subviews>
                                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Movies" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" id="hqS-YT-9uR">
                                                 <rect key="frame" x="5" y="12" width="91" height="76"/>
@@ -175,6 +173,7 @@
                         <segue destination="Wei-jV-qr8" kind="push" identifier="AddBook" id="zL2-yI-akF"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4" sceneMemberID="firstResponder"/>
                 <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.0" id="pOy-1t-uHY">
                     <connections>
                         <action selector="press:" destination="2" id="7mn-Ea-Wdq"/>
@@ -186,15 +185,14 @@
         <!--Add Book View Controller-->
         <scene sceneID="px6-i5-EoD">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="pYx-eh-fFu" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="Wei-jV-qr8" customClass="AddBookViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8uV-hf-RER">
                         <rect key="frame" x="0.0" y="64" width="320" height="416"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="page3.png" id="K4a-7K-V0T">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="416"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" heightSizable="YES"/>
                             </imageView>
                             <view contentMode="scaleToFill" id="nKe-rt-gwL">
                                 <rect key="frame" x="0.0" y="221" width="320" height="70"/>
@@ -351,13 +349,13 @@
                         <outlet property="titleTextField" destination="Kuy-hX-Pcc" id="cbH-Qj-5q8"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pYx-eh-fFu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="586" y="-366"/>
         </scene>
         <!--Books Table View Controller-->
         <scene sceneID="L4a-gc-wCC">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="2HG-ut-JBf" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tableViewController wantsFullScreenLayout="YES" hidesBottomBarWhenPushed="YES" id="eRw-mG-9Yt" customClass="BooksTableViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="VEU-b6-dPT">
                         <rect key="frame" x="0.0" y="64" width="320" height="416"/>
@@ -499,13 +497,13 @@
                         <segue destination="Kgm-IQ-72x" kind="push" identifier="EditCell" id="SbD-3M-LGt"/>
                     </connections>
                 </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2HG-ut-JBf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="979" y="-7"/>
         </scene>
         <!--Table Options View Controller-->
         <scene sceneID="emQ-y4-IMa">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="RfP-Ov-9N2" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="9Ud-f6-kIg" customClass="TableOptionsViewController" sceneMemberID="viewController">
                     <view key="view" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="GB3-O1-xZp">
                         <rect key="frame" x="0.0" y="20" width="320" height="460"/>
@@ -525,13 +523,13 @@
                         <outlet property="instructionLabel" destination="cMV-cV-tg0" id="XkW-NO-yVr"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RfP-Ov-9N2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1814" y="287"/>
         </scene>
         <!--Book Details View Controller-->
         <scene sceneID="8NH-CR-BBd">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="fGl-4m-LVa" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="Kgm-IQ-72x" customClass="BookDetailsViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="VRU-vz-sfe">
                         <rect key="frame" x="0.0" y="64" width="320" height="416"/>
@@ -539,7 +537,7 @@
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="page3.png" id="aby-xt-vWk">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="416"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" heightSizable="YES"/>
                             </imageView>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Rating:" lineBreakMode="tailTruncation" minimumFontSize="10" id="MXP-ws-eUl">
                                 <rect key="frame" x="96" y="187" width="96" height="21"/>
@@ -713,21 +711,21 @@
                         <outlet property="titleField" destination="XoF-fv-YV8" id="3Nu-1z-gps"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fGl-4m-LVa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1312" y="-7"/>
         </scene>
         <!--Add Movie View Controller-->
         <scene sceneID="Z2F-Jg-bpV">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="5pk-2d-Ngx" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="7LJ-Sw-bM2" customClass="AddMovieViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="1Ev-Vj-sW3">
                         <rect key="frame" x="0.0" y="64" width="320" height="416"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="cinemaBig.png" id="Aha-1h-By8">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="416"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" heightSizable="YES"/>
                             </imageView>
                             <view contentMode="scaleToFill" id="CHQ-mT-ImK">
                                 <rect key="frame" x="0.0" y="156" width="320" height="70"/>
@@ -876,13 +874,13 @@
                         <outlet property="titleField" destination="olp-rH-HzJ" id="vd4-5R-JEO"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5pk-2d-Ngx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="577" y="842"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="QD0-AK-DcY">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ovs-7B-ZPR" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController id="Rvj-pb-dDP" sceneMemberID="viewController">
                     <toolbarItems/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="blackTranslucent"/>
@@ -900,13 +898,13 @@
                         <segue destination="2" kind="relationship" relationship="rootViewController" id="QWT-ck-etx"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ovs-7B-ZPR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-234" y="231"/>
         </scene>
         <!--Movies Table View Controller-->
         <scene sceneID="alm-6I-kTN">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="pXM-Kv-PkH" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tableViewController hidesBottomBarWhenPushed="YES" id="0eJ-Uw-zlL" customClass="MoviesTableViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="56" sectionHeaderHeight="22" sectionFooterHeight="22" id="iLp-bH-xq3">
                         <rect key="frame" x="0.0" y="64" width="320" height="416"/>
@@ -1044,13 +1042,13 @@
                         <segue destination="0Du-or-8tg" kind="push" identifier="EditCell" id="4mG-Ut-bju"/>
                     </connections>
                 </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pXM-Kv-PkH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="979" y="543"/>
         </scene>
         <!--Movie Details View Controller-->
         <scene sceneID="Cmc-3Y-vps">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ELM-bX-MBk" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="0Du-or-8tg" customClass="MovieDetailsViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="QSj-Lt-555">
                         <rect key="frame" x="0.0" y="64" width="320" height="416"/>
@@ -1058,7 +1056,7 @@
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="cinemaBig.png" id="C33-Zs-Tkc">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="416"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" heightSizable="YES"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="G61-e3-X32">
                                 <rect key="frame" x="87" y="236" width="60" height="60"/>
@@ -1219,6 +1217,7 @@
                         <outlet property="titleField" destination="yav-Fh-gZz" id="3a7-Vm-KfP"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ELM-bX-MBk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1405" y="551"/>
         </scene>
@@ -1234,130 +1233,14 @@
         <image name="page3.png" width="640" height="832"/>
         <image name="plus2.png" width="100" height="66"/>
     </resources>
-    <classes>
-        <class className="AddBookViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/AddBookViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="authorTextField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="descriptionTextField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="ratingLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="ratingMinusButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="ratingPlusButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="ratingSwitch" candidateClass="UISwitch"/>
-                <relationship kind="outlet" name="ratingView" candidateClass="UIView"/>
-                <relationship kind="outlet" name="saveButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="staticLabelRating" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="titleTextField" candidateClass="UITextField"/>
-            </relationships>
-        </class>
-        <class className="AddMovieViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/AddMovieViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="infoField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="ratingLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="ratingMinusButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="ratingPlusButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="ratingSwitch" candidateClass="UISwitch"/>
-                <relationship kind="outlet" name="ratingView" candidateClass="UIView"/>
-                <relationship kind="outlet" name="saveMovieButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="staticLabelRating" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="titleField" candidateClass="UITextField"/>
-            </relationships>
-        </class>
-        <class className="BookDetailsViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/BookDetailsViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="authorField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="deleteButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="infoField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="ratingEditionView" candidateClass="UIView"/>
-                <relationship kind="outlet" name="ratingLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="ratingMinusButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="ratingPlusButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="ratingSwitch" candidateClass="UISwitch"/>
-                <relationship kind="outlet" name="saveButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="staticLabelRating" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="titleField" candidateClass="UITextField"/>
-            </relationships>
-        </class>
-        <class className="BooksTableViewController" superclassName="CoreDataTableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/BooksTableViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="addButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="headerImage" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="loadingDataIndicator" candidateClass="UIActivityIndicatorView"/>
-                <relationship kind="outlet" name="optionsButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="titleLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="ChooseView" superclassName="UIView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ChooseView.h"/>
-        </class>
-        <class className="CircleView" superclassName="UIView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/CircleView.h"/>
-        </class>
-        <class className="CoreDataTableViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/CoreDataTableViewController.h"/>
-        </class>
-        <class className="CustomNavigationBar" superclassName="UINavigationBar">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/CustomNavigationBar.h"/>
-        </class>
-        <class className="MovieDetailsViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MovieDetailsViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="decreaseRatingButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="deleteButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="increaseRatingButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="infoField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="ratingLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="ratingSwitch" candidateClass="UISwitch"/>
-                <relationship kind="outlet" name="ratingView" candidateClass="UIView"/>
-                <relationship kind="outlet" name="saveButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="staticLabelRating" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="titleField" candidateClass="UITextField"/>
-            </relationships>
-        </class>
-        <class className="MoviesTableViewController" superclassName="CoreDataTableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MoviesTableViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="addButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="headerImage" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="loadingDataIndicator" candidateClass="UIActivityIndicatorView"/>
-                <relationship kind="outlet" name="optionsButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="titleLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="NewApplicationViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NewApplicationViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="bookView" candidateClass="CircleView"/>
-                <relationship kind="outlet" name="chooseView" candidateClass="ChooseView"/>
-                <relationship kind="outlet" name="enterView" candidateClass="CircleView"/>
-                <relationship kind="outlet" name="futureView" candidateClass="CircleView"/>
-                <relationship kind="outlet" name="futureViewLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="info" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="instructionLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="movieView" candidateClass="CircleView"/>
-                <relationship kind="outlet" name="pastView" candidateClass="CircleView"/>
-                <relationship kind="outlet" name="pastViewLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="viewAllView" candidateClass="CircleView"/>
-            </relationships>
-        </class>
-        <class className="TableOptionsViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/TableOptionsViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="instructionLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar" statusBarStyle="blackTranslucent"/>
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="Qgo-vE-l9n"/>
-        <segue reference="Q2d-Db-Uvw"/>
-        <segue reference="EnC-ha-Nlr"/>
+        <segue reference="tFx-y9-oll"/>
+        <segue reference="zL2-yI-akF"/>
+        <segue reference="ubs-wG-ZiZ"/>
     </inferredMetricsTieBreakers>
 </document>

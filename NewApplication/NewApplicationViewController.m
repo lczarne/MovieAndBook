@@ -459,7 +459,6 @@
     if ( !self.movieTapped && !self.bookTapped) {
         
         if (CGRectContainsPoint(self.movieView.frame, pressLocation)) {
-            NSLog(@"movie TAPPED");
             self.pastViewLabel.text= @"Watched";
             self.futureViewLabel.text=@"To See";
             self.movieTapped=YES;
@@ -473,7 +472,6 @@
             [self showSecondChoice];
         }
         else if (CGRectContainsPoint(self.bookView.frame, pressLocation)){
-            NSLog(@"BOOK TAPPED");
             self.pastViewLabel.text= @"Finished";
             self.futureViewLabel.text=@"To Read";
             self.bookTapped=YES;
@@ -505,13 +503,11 @@
         }
         if ( !self.pastTapped && !self.futureTapped) {
             if (CGRectContainsPoint(self.pastView.frame, pressLocation)) {
-                NSLog(@"PAST TAPPED");
                 self.pastTapped=YES;
                 [self hideCircleView:self.futureView withChoicePathLayer:self.secondChoicePathLayerB];
                 [self showThirdChoice];
             }
             else if (CGRectContainsPoint(self.futureView.frame, pressLocation)){
-                NSLog(@"FUTURE TAPPED");
                 self.futureTapped=YES;
                 [self hideCircleView:self.pastView withChoicePathLayer:self.secondChoicePathLayerA];
                 [self showThirdChoice];
@@ -529,13 +525,11 @@
             [self hideThirdChoice];
         }
         else if (CGRectContainsPoint(self.viewAllView.frame, pressLocation) && !self.enterTapped){
-            NSLog(@"viewAll TAPPED");
             self.viewAllTapped=YES;
             [self changeInstructionText];
             [self hideCircleView:self.enterView withChoicePathLayer:self.thirdChoicePathLayerB];            
         }
         else if (CGRectContainsPoint(self.enterView.frame, pressLocation) && !self.viewAllTapped){
-            NSLog(@"enter TAPPED");
             self.enterTapped=YES;
             [self changeInstructionText];
             [self hideCircleView:self.viewAllView withChoicePathLayer:self.thirdChoicePathLayerA];   
@@ -561,7 +555,6 @@
         }
         
         if (gesture.state==UIGestureRecognizerStateEnded){
-            NSLog(@"TAP END");
             if (self.enterTapped || self.viewAllTapped){
                 if (self.enterTapped){
                     if (self.bookTapped){
@@ -747,7 +740,7 @@
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     // Return YES for supported orientations
-    return UIInterfaceOrientationPortrait;
+    return (interfaceOrientation==UIInterfaceOrientationPortrait);
 }
 
 

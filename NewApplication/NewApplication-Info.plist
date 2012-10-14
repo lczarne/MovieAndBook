@@ -10,8 +10,8 @@
 	<string>${EXECUTABLE_NAME}</string>
 	<key>CFBundleIconFiles</key>
 	<array>
-		<string>IconC.png</string>
-		<string>iconC2.png</string>
+		<string>mb57.png</string>
+		<string>mb114.png</string>
 	</array>
 	<key>CFBundleIcons</key>
 	<dict>
@@ -19,8 +19,8 @@
 		<dict>
 			<key>CFBundleIconFiles</key>
 			<array>
-				<string>IconC.png</string>
-				<string>iconC2.png</string>
+				<string>mb57.png</string>
+				<string>mb114.png</string>
 			</array>
 			<key>UIPrerenderedIcon</key>
 			<true/>
@@ -48,6 +48,8 @@
 	<array>
 		<string>armv7</string>
 	</array>
+	<key>UIStatusBarHidden</key>
+	<false/>
 	<key>UIStatusBarStyle</key>
 	<string>UIStatusBarStyleBlackOpaque</string>
 	<key>UISupportedInterfaceOrientations</key>

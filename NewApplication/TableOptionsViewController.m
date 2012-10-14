@@ -28,14 +28,14 @@
     CGFloat startX= (self.view.frame.size.width/2) - (size/2);
     
     control.frame = CGRectMake(startX, SEGMENT_CONTROL_Y, size, SEGMENT_HEIGHT);
-    control.segmentedControlStyle = UISegmentedControlStyleBezeled;
-    control.tintColor= [UIColor blackColor];
+    control.segmentedControlStyle = UISegmentedControlStyleBar;
+    control.tintColor= [UIColor darkGrayColor];
+    
     control.selectedSegmentIndex = self.selectedSortType;
     [self.view addSubview:control];
     [control addTarget:self 
                 action:@selector(pickOption:) 
       forControlEvents:UIControlEventValueChanged];
-
     
     
     /*
@@ -52,10 +52,15 @@
 
 - (void)pickOption:(UISegmentedControl*)sender
 {
-    //NSLog(@"selectedIndex: %d",sender.selectedSegmentIndex);
     [self.delegate changeTableSortTypeTo:sender.selectedSegmentIndex 
                                   sender:self];
     
+}
+
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
+{
+    // Return YES for supported orientations
+    return (interfaceOrientation==UIInterfaceOrientationPortrait);
 }
 
 #pragma mark - View Lifecycle

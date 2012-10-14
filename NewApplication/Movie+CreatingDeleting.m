@@ -24,7 +24,6 @@
     movie.watched=[NSNumber numberWithBool:watched];
     movie.dateAdded=[NSDate date];
     
-    NSLog(@"new movie: %@ watched:%d",movie.title, [movie.watched intValue]);
     return movie;
 }
 
