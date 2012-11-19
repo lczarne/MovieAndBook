@@ -80,7 +80,7 @@
 
 - (IBAction)saveChanges:(UIButton*)sender {
     
-    if (([self.titleField.text length] && [self.authorField.text length])) {
+    if ([self.titleField.text length]) {
         self.book.title=self.titleField.text;
         self.book.author=self.authorField.text;
         self.book.info=self.infoField.text;

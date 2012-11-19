@@ -282,6 +282,7 @@
         cell.titleTextView.text=book.title;
         cell.authorLabel.text=book.author;
         
+        
         if (![book.info length]) {
             cell.descriptionTextView.text=@"no description";
         }
@@ -430,6 +431,7 @@
         completion: ^(BOOL finished){
             
             self.selectedBook.finished=[NSNumber numberWithBool:YES];
+            self.selectedBook.dateAdded = [NSDate date];
             self.selectedRow=-1;
             self.someCellisSelected=NO;
             self.lastSelectedCell.transform= CGAffineTransformScale(transform, 1, 1);

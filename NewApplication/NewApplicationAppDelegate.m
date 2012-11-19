@@ -7,10 +7,19 @@
 //
 
 #import "NewApplicationAppDelegate.h"
+#import <FacebookSDK/FacebookSDK.h>
 
 @implementation NewApplicationAppDelegate
 
 @synthesize window = _window;;
+
+- (BOOL)application:(UIApplication *)application
+            openURL:(NSURL *)url
+  sourceApplication:(NSString *)sourceApplication
+         annotation:(id)annotation {
+    // attempt to extract a token from the url
+    return [FBSession.activeSession handleOpenURL:url];
+}
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
@@ -50,6 +59,8 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application
 {
+    [FBSession.activeSession close];
+
     /*
      Called when the application is about to terminate.
      Save data if appropriate.

@@ -89,7 +89,7 @@
 
 - (IBAction)addBook:(UIBarButtonItem*)sender 
 {
-    if ([self.titleTextField.text length] && [self.authorTextField.text length]){
+    if ([self.titleTextField.text length]){
         if (!self.ratingSwitch.isOn){
             self.ratingValue=0;
         }

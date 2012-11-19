@@ -7,6 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <FacebookSDK/FacebookSDK.h>
+
 
 @class AddMovieViewController;
 @protocol AddMovieViewControllerDelegate
@@ -15,7 +17,7 @@
 - (void)finishedUsingDatabase;
 @end
 
-@interface AddMovieViewController : UIViewController <UIAlertViewDelegate,UITextFieldDelegate>
+@interface AddMovieViewController : UIViewController <UIAlertViewDelegate,UITextFieldDelegate, FBLoginViewDelegate>
 
 
 @property (nonatomic,strong) UIManagedDocument *dataBase;

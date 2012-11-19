@@ -15,8 +15,8 @@
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "25CAA0A114E596360096980D"
                BuildableName = "Movie&amp;Book.app"
-               BlueprintName = "NewApplication"
-               ReferencedContainer = "container:NewApplication.xcodeproj">
+               BlueprintName = "Movie&amp;Book"
+               ReferencedContainer = "container:Movie&amp;Book.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,8 +33,8 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "25CAA0A114E596360096980D"
             BuildableName = "Movie&amp;Book.app"
-            BlueprintName = "NewApplication"
-            ReferencedContainer = "container:NewApplication.xcodeproj">
+            BlueprintName = "Movie&amp;Book"
+            ReferencedContainer = "container:Movie&amp;Book.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -44,6 +44,7 @@
       launchStyle = "0"
       useCustomWorkingDirectory = "NO"
       buildConfiguration = "Distribution"
+      ignoresPersistentStateOnLaunch = "NO"
       debugDocumentVersioning = "YES"
       allowLocationSimulation = "YES">
       <BuildableProductRunnable>
@@ -51,8 +52,8 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "25CAA0A114E596360096980D"
             BuildableName = "Movie&amp;Book.app"
-            BlueprintName = "NewApplication"
-            ReferencedContainer = "container:NewApplication.xcodeproj">
+            BlueprintName = "Movie&amp;Book"
+            ReferencedContainer = "container:Movie&amp;Book.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -69,8 +70,8 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "25CAA0A114E596360096980D"
             BuildableName = "Movie&amp;Book.app"
-            BlueprintName = "NewApplication"
-            ReferencedContainer = "container:NewApplication.xcodeproj">
+            BlueprintName = "Movie&amp;Book"
+            ReferencedContainer = "container:Movie&amp;Book.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

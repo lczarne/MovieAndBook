@@ -9,9 +9,15 @@
 #import "AddMovieViewController.h"
 #import "Movie+CreatingDeleting.h"
 #import "Constants.h"
+#import <FacebookSDK/FacebookSDK.h>
+
 
 @interface AddMovieViewController()
 @property (nonatomic) int ratingValue;
+@property (strong, nonatomic) FBRequestConnection *requestConnection;
+@property (nonatomic, strong) FBSession *session;
+@property (strong, nonatomic) id<FBGraphUser> loggedInUser;
+
 @end
 
 @implementation AddMovieViewController
@@ -84,6 +90,51 @@
     if (self.ratingValue>1) {
         self.ratingValue--;
     }
+}
+
+
+- (void)loginViewShowingLoggedInUser:(FBLoginView *)loginView {
+    // first get the buttons set for login mode
+ 
+}
+
+- (void)loginViewFetchedUserInfo:(FBLoginView *)loginView
+                            user:(id<FBGraphUser>)user {
+    // here we use helper properties of FBGraphUser to dot-through to first_name and
+    // id properties of the json response from the server; alternatively we could use
+    // NSDictionary methods such as objectForKey to get values from the my json object
+
+    // setting the profileID property of the FBProfilePictureView instance
+    // causes the control to fetch and display the profile picture for the user
+    self.loggedInUser = user;
+}
+
+
+- (IBAction)addAndShare:(id)sender {
+    
+    NSString *message = [NSString stringWithFormat:@"Updating %@'s status at %@",
+                         self.loggedInUser.first_name, [NSDate date]];
+    
+    [FBRequestConnection startForPostStatusUpdate:message
+                                completionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
+                                    
+                                  
+                                }];
+    
+//    NSMutableDictionary* params = [NSMutableDictionary dictionaryWithObjectsAndKeys:
+//                                   @"555514237795897", @"app_id",
+//                                   @"http://movieandbookapp.com",@"link",
+//                                   @"Name", @"name",
+//                                   @"Caption", @"caption",
+//                                   @"description", @"description",
+//                                   nil];
+    
+//    [self.facebook requestWithGraphPath:@"3373837538682/feed"
+//                          andParams:[NSMutableDictionary dictionaryWithObject:@"test wall post" forKey:@"message"]
+//                      andHttpMethod:@"POST"
+//                        andDelegate:self];
+    
+//    [self.facebook dialog:@"feed" andParams:params andDelegate:self];
 }
 
 
@@ -172,6 +223,20 @@
 
 #pragma mark - View lifecycle
 
+-(void)viewDidLoad
+{
+    FBLoginView *loginview =
+    [[FBLoginView alloc] initWithPermissions:[NSArray arrayWithObject:@"status_update"]];
+    
+    loginview.frame = CGRectOffset(loginview.frame, 5, 5);
+    loginview.delegate = self;
+    
+    [self.view addSubview:loginview];
+    
+    [loginview sizeToFit];
+
+}
+
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
@@ -193,7 +258,8 @@
             url = [url URLByAppendingPathComponent:@"MovieBooksDatabase"];
             self.dataBase = [[UIManagedDocument alloc] initWithFileURL:url];
         }
-    } 
+    }
+    
 }
 - (void)viewWillDisappear:(BOOL)animated
 {

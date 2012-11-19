@@ -402,6 +402,7 @@
             self.selectedMovie.watched=[NSNumber numberWithBool:YES];
             self.selectedRow=-1;
             self.someCellisSelected=NO;
+            self.selectedMovie.dateAdded = [NSDate date];
             self.lastSelectedCell.transform= CGAffineTransformScale(transform, 1, 1);
             self.lastSelectedCell=nil;
             
