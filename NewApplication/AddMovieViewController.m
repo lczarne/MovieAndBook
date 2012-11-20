@@ -14,9 +14,6 @@
 
 @interface AddMovieViewController()
 @property (nonatomic) int ratingValue;
-@property (strong, nonatomic) FBRequestConnection *requestConnection;
-@property (nonatomic, strong) FBSession *session;
-@property (strong, nonatomic) id<FBGraphUser> loggedInUser;
 
 @end
 
@@ -93,48 +90,97 @@
 }
 
 
-- (void)loginViewShowingLoggedInUser:(FBLoginView *)loginView {
-    // first get the buttons set for login mode
- 
-}
-
-- (void)loginViewFetchedUserInfo:(FBLoginView *)loginView
-                            user:(id<FBGraphUser>)user {
-    // here we use helper properties of FBGraphUser to dot-through to first_name and
-    // id properties of the json response from the server; alternatively we could use
-    // NSDictionary methods such as objectForKey to get values from the my json object
-
-    // setting the profileID property of the FBProfilePictureView instance
-    // causes the control to fetch and display the profile picture for the user
-    self.loggedInUser = user;
-}
 
 
-- (IBAction)addAndShare:(id)sender {
-    
-    NSString *message = [NSString stringWithFormat:@"Updating %@'s status at %@",
-                         self.loggedInUser.first_name, [NSDate date]];
+- (void)publishStory
+{
+    NSString *message = [NSString stringWithFormat:@"Added movie"];
     
     [FBRequestConnection startForPostStatusUpdate:message
                                 completionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
+                                    NSString *alertText;
+                                    if (error) {
+                                        alertText = [NSString stringWithFormat:
+                                                     @"There was a problem with Facebook connection"];
+                                    } else {
+                                        alertText = [NSString stringWithFormat:
+                                                     @"Posted to Facebook"];
+                                    }
+                                    // Show the result in an alert
+                                    [[[UIAlertView alloc] initWithTitle:@""
+                                                                message:alertText
+                                                               delegate:self
+                                                      cancelButtonTitle:@"OK"
+                                                      otherButtonTitles:nil]
+                                     show];
                                     
-                                  
                                 }];
+
     
-//    NSMutableDictionary* params = [NSMutableDictionary dictionaryWithObjectsAndKeys:
-//                                   @"555514237795897", @"app_id",
-//                                   @"http://movieandbookapp.com",@"link",
-//                                   @"Name", @"name",
-//                                   @"Caption", @"caption",
-//                                   @"description", @"description",
-//                                   nil];
+
+}
+
+- (void)share
+{
+    if (!FBSession.activeSession.isOpen) {
+        [FBSession openActiveSessionWithPermissions:[NSArray arrayWithObject:@"publish_actions"] allowLoginUI:YES completionHandler:^(FBSession *session, FBSessionState status, NSError *error) {
+            if (!error) {
+                // If permissions granted, publish the story
+                [self publishStory];
+            }
+        }];
+    }
+    else {
+        if ([FBSession.activeSession.permissions
+             indexOfObject:@"publish_actions"] == NSNotFound) {
+            // No permissions found in session, ask for it
+            
+            [FBSession.activeSession reauthorizeWithPermissions:[NSArray arrayWithObject:@"publish_actions"] behavior:FBSessionLoginBehaviorForcingWebView completionHandler:^(FBSession *session, NSError *error) {
+                if (!error) {
+                    // If permissions granted, publish the story
+                    [self publishStory];
+                }
+            }];
+            
+        } else {
+            // If permissions present, publish the story
+            [self publishStory];
+        }
+    }
+}
+
+- (void)addMovie
+{
+    if (!self.ratingSwitch.isOn){
+        self.ratingValue=0;
+    }
+    [Movie movieWithTitle:self.titleField.text
+                   Rating:[NSNumber numberWithInt:self.ratingValue]
+                     Info:self.infoField.text
+                  Watched:self.watchedMovies
+   inManagedObjectContext:self.dataBase.managedObjectContext];
     
-//    [self.facebook requestWithGraphPath:@"3373837538682/feed"
-//                          andParams:[NSMutableDictionary dictionaryWithObject:@"test wall post" forKey:@"message"]
-//                      andHttpMethod:@"POST"
-//                        andDelegate:self];
+    [self.delegate reloadAfterChanges];
     
-//    [self.facebook dialog:@"feed" andParams:params andDelegate:self];
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:@"Movie was Added."
+                                                   delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
+    [alert show];
+    
+    self.titleField.text=@"";
+    self.infoField.text=@"";
+    
+    self.ratingSwitch.on=NO;
+    self.ratingView.hidden=YES;
+    self.ratingValue=0;
+    
+}
+
+- (IBAction)addAndShare:(id)sender {
+    if ([self.titleField.text length]){
+        [self addMovie];
+        [self share];
+    }
+    
 }
 
 
@@ -142,32 +188,11 @@
 - (IBAction)addMovie:(UIBarButtonItem*)sender 
 {
     if ([self.titleField.text length]){
-        if (!self.ratingSwitch.isOn){
-            self.ratingValue=0;
-        }
-        [Movie movieWithTitle:self.titleField.text 
-                     Rating:[NSNumber numberWithInt:self.ratingValue] 
-                       Info:self.infoField.text 
-                    Watched:self.watchedMovies 
-     inManagedObjectContext:self.dataBase.managedObjectContext];
-        
-        [self.delegate reloadAfterChanges];
-        
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:@"Movie was Added."
-                                                       delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
-        [alert show];
-        
-        self.titleField.text=@"";
-        self.infoField.text=@"";
-        
-        self.ratingSwitch.on=NO;
-        self.ratingView.hidden=YES;
-        self.ratingValue=0;
-        
-        
+        [self addMovie];
     }
-    
 }
+
+
 
 - (void)useDocument
 {
@@ -225,15 +250,7 @@
 
 -(void)viewDidLoad
 {
-    FBLoginView *loginview =
-    [[FBLoginView alloc] initWithPermissions:[NSArray arrayWithObject:@"status_update"]];
-    
-    loginview.frame = CGRectOffset(loginview.frame, 5, 5);
-    loginview.delegate = self;
-    
-    [self.view addSubview:loginview];
-    
-    [loginview sizeToFit];
+
 
 }
 
