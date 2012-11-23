@@ -13,7 +13,7 @@
 #import "TableOptionsViewController.h"
 
 
-@interface MoviesTableViewController : CoreDataTableViewController <customMovieCellDelegate,MovieDetailViewDelegate,TableOptionsViewControllerDelegate>
+@interface MoviesTableViewController : CoreDataTableViewController <customMovieCellDelegate,MovieDetailViewDelegate,TableOptionsViewControllerDelegate, UIActionSheetDelegate>
 @property (nonatomic,strong) UIManagedDocument *dataBase;
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property BOOL showWatchedMovies;

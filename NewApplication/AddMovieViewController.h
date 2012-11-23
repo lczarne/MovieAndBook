@@ -32,6 +32,9 @@
 @property (weak, nonatomic) IBOutlet UIButton *ratingMinusButton;
 @property (weak, nonatomic) IBOutlet UIButton *ratingPlusButton;
 @property (weak, nonatomic) IBOutlet UIButton *saveMovieButton;
+@property (weak, nonatomic) IBOutlet UIButton *addButton;
+@property (weak, nonatomic) IBOutlet UIButton *addAndShareButton;
+@property (weak, nonatomic) IBOutlet UIView *addAndShareView;
 
 @property (nonatomic, strong) id<AddMovieViewControllerDelegate> delegate;
 

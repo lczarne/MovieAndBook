@@ -803,7 +803,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Z3R-nu-4H4">
-                                <rect key="frame" x="98" y="236" width="60" height="60"/>
+                                <rect key="frame" x="90" y="234" width="60" height="60"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Futura-CondensedMedium" family="Futura" pointSize="20"/>
                                 <state key="normal" title="Add" backgroundImage="bt_blu.png">
@@ -817,35 +817,42 @@
                                     <action selector="addMovie:" destination="7LJ-Sw-bM2" eventType="touchUpInside" id="6ua-v1-WyL"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="6EY-Oj-tlk">
-                                <rect key="frame" x="179" y="236" width="60" height="60"/>
+                            <view contentMode="scaleToFill" id="dgH-Ej-vYR">
+                                <rect key="frame" x="170" y="234" width="60" height="60"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="Futura-CondensedMedium" family="Futura" pointSize="20"/>
-                                <state key="normal" backgroundImage="bt_blu.png">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <state key="highlighted">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="addAndShare:" destination="7LJ-Sw-bM2" eventType="touchUpInside" id="ahz-UI-kZs"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Add" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="99j-m3-iAq">
-                                <rect key="frame" x="181" y="223" width="55" height="68"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="Futura-CondensedMedium" family="Futura" pointSize="20"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="&amp;Share" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ke6-rv-VBI">
-                                <rect key="frame" x="182" y="258" width="55" height="33"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="Futura-CondensedMedium" family="Futura" pointSize="17"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="6EY-Oj-tlk">
+                                        <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="Futura-CondensedMedium" family="Futura" pointSize="20"/>
+                                        <state key="normal" backgroundImage="bt_blu.png">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <state key="highlighted">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="addAndShare:" destination="7LJ-Sw-bM2" eventType="touchUpInside" id="ahz-UI-kZs"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Add" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="99j-m3-iAq">
+                                        <rect key="frame" x="3" y="-14" width="54" height="68"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="Futura-CondensedMedium" family="Futura" pointSize="20"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="&amp;Share" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ke6-rv-VBI">
+                                        <rect key="frame" x="3" y="22" width="54" height="33"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="Futura-CondensedMedium" family="Futura" pointSize="17"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -892,19 +899,23 @@
                         </view>
                     </navigationItem>
                     <connections>
+                        <outlet property="addAndShareButton" destination="6EY-Oj-tlk" id="dR2-6w-J4A"/>
+                        <outlet property="addAndShareView" destination="dgH-Ej-vYR" id="TPx-QF-mOu"/>
+                        <outlet property="addButton" destination="Z3R-nu-4H4" id="zBt-TW-0WO"/>
                         <outlet property="infoField" destination="Jkg-je-h2S" id="Mvg-a4-IkK"/>
                         <outlet property="ratingLabel" destination="gvC-kV-YEy" id="yTs-mO-TmI"/>
                         <outlet property="ratingMinusButton" destination="bVa-V6-wke" id="Rrm-uX-xfu"/>
                         <outlet property="ratingPlusButton" destination="ouU-h0-goL" id="miK-5S-DjB"/>
                         <outlet property="ratingSwitch" destination="0V9-yf-ex0" id="2Vl-sa-uIA"/>
                         <outlet property="ratingView" destination="CHQ-mT-ImK" id="4hd-vq-DHZ"/>
+                        <outlet property="saveMovieButton" destination="ouU-h0-goL" id="Svu-MY-amZ"/>
                         <outlet property="staticLabelRating" destination="pp0-SU-c0q" id="o6F-aa-CMN"/>
                         <outlet property="titleField" destination="olp-rH-HzJ" id="vd4-5R-JEO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5pk-2d-Ngx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="577" y="842"/>
+            <point key="canvasLocation" x="586" y="830"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="QD0-AK-DcY">
@@ -1261,122 +1272,6 @@
         <image name="page3.png" width="320" height="416"/>
         <image name="plus2.png" width="50" height="33"/>
     </resources>
-    <classes>
-        <class className="AddBookViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/AddBookViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="authorTextField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="descriptionTextField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="ratingLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="ratingMinusButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="ratingPlusButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="ratingSwitch" candidateClass="UISwitch"/>
-                <relationship kind="outlet" name="ratingView" candidateClass="UIView"/>
-                <relationship kind="outlet" name="saveButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="staticLabelRating" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="titleTextField" candidateClass="UITextField"/>
-            </relationships>
-        </class>
-        <class className="AddMovieViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/AddMovieViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="infoField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="ratingLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="ratingMinusButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="ratingPlusButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="ratingSwitch" candidateClass="UISwitch"/>
-                <relationship kind="outlet" name="ratingView" candidateClass="UIView"/>
-                <relationship kind="outlet" name="saveMovieButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="staticLabelRating" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="titleField" candidateClass="UITextField"/>
-            </relationships>
-        </class>
-        <class className="BookDetailsViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/BookDetailsViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="authorField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="deleteButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="infoField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="ratingEditionView" candidateClass="UIView"/>
-                <relationship kind="outlet" name="ratingLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="ratingMinusButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="ratingPlusButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="ratingSwitch" candidateClass="UISwitch"/>
-                <relationship kind="outlet" name="saveButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="staticLabelRating" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="titleField" candidateClass="UITextField"/>
-            </relationships>
-        </class>
-        <class className="BooksTableViewController" superclassName="CoreDataTableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/BooksTableViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="addButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="headerImage" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="loadingDataIndicator" candidateClass="UIActivityIndicatorView"/>
-                <relationship kind="outlet" name="optionsButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="titleLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="ChooseView" superclassName="UIView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ChooseView.h"/>
-        </class>
-        <class className="CircleView" superclassName="UIView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/CircleView.h"/>
-        </class>
-        <class className="CoreDataTableViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/CoreDataTableViewController.h"/>
-        </class>
-        <class className="CustomNavigationBar" superclassName="UINavigationBar">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/CustomNavigationBar.h"/>
-        </class>
-        <class className="MovieDetailsViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MovieDetailsViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="decreaseRatingButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="deleteButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="increaseRatingButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="infoField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="ratingLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="ratingSwitch" candidateClass="UISwitch"/>
-                <relationship kind="outlet" name="ratingView" candidateClass="UIView"/>
-                <relationship kind="outlet" name="saveButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="staticLabelRating" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="titleField" candidateClass="UITextField"/>
-            </relationships>
-        </class>
-        <class className="MoviesTableViewController" superclassName="CoreDataTableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MoviesTableViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="addButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="headerImage" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="loadingDataIndicator" candidateClass="UIActivityIndicatorView"/>
-                <relationship kind="outlet" name="optionsButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="titleLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="NewApplicationViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NewApplicationViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="bookView" candidateClass="CircleView"/>
-                <relationship kind="outlet" name="chooseView" candidateClass="ChooseView"/>
-                <relationship kind="outlet" name="enterView" candidateClass="CircleView"/>
-                <relationship kind="outlet" name="futureView" candidateClass="CircleView"/>
-                <relationship kind="outlet" name="futureViewLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="info" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="instructionLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="movieView" candidateClass="CircleView"/>
-                <relationship kind="outlet" name="pastView" candidateClass="CircleView"/>
-                <relationship kind="outlet" name="pastViewLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="viewAllView" candidateClass="CircleView"/>
-            </relationships>
-        </class>
-        <class className="TableOptionsViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/TableOptionsViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="instructionLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar" statusBarStyle="blackTranslucent"/>
         <simulatedOrientationMetrics key="orientation"/>

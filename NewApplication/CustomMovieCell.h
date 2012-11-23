@@ -13,6 +13,7 @@
 
 - (void)editCell:(CustomMovieCell*)sender;
 - (void)moveSelectedMovieToWatched:(CustomMovieCell*)sender;
+- (void)shareWatchedMovie;
 @end
 
 @interface CustomMovieCell : UITableViewCell
@@ -26,6 +27,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *infoLabel;
 @property (weak, nonatomic) IBOutlet UIButton *goToEditButton;
 @property (weak, nonatomic) IBOutlet UIButton *watchedButton;
+@property (weak, nonatomic) IBOutlet UIButton *shareButton;
 @property (nonatomic,strong) id<customMovieCellDelegate> delegate;
 
 

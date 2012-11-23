@@ -30,6 +30,9 @@
     return self;
 }
 
+- (IBAction)shareWatchedMovie:(id)sender {
+    [self.delegate shareWatchedMovie];
+}
 
 - (IBAction)moveBookToFinished:(UIButton*)sender {
     [self.delegate moveSelectedMovieToWatched:self];

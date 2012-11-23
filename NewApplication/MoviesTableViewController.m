@@ -10,6 +10,8 @@
 #import "CustomMovieCell.h"
 #import "Movie+CreatingDeleting.h"
 #import "AddMovieViewController.h"
+#import <FacebookSDK/FacebookSDK.h>
+
 
 @interface MoviesTableViewController()
 @property (weak, nonatomic) IBOutlet UIImageView *headerImage;
@@ -271,10 +273,14 @@
                 cell.ratingLabel.text=[NSString stringWithFormat:@"%d/10",movie.rating.integerValue];
             }
             cell.watchedButton.hidden=YES;
+            cell.shareButton.hidden = NO;
+            //cell.watchedButton.titleLabel.text = @"Share";
         }
         else{
             cell.staticLabelRating.hidden=YES;
             cell.ratingLabel.hidden=YES;
+            cell.watchedButton.hidden=NO;
+            cell.shareButton.hidden = YES;
         }
         
         self.selectedMovie=movie;
@@ -381,6 +387,11 @@
   
 #pragma mark - customSpecialCellDelegate
 
+- (void)shareWatchedMovie
+{
+    [self share];
+}
+
 - (void)editCell:(CustomMovieCell *)sender
 {
     [self performSegueWithIdentifier:@"EditCell" sender:self];
@@ -388,28 +399,38 @@
 
 - (void)moveSelectedMovieToWatched:(CustomMovieCell *)sender
 {
+    UIActionSheet *popupQuery = [[UIActionSheet alloc] initWithTitle:@"Move to Watched?" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Move & Share", @"Move", nil];
     
+    popupQuery.actionSheetStyle = UIActionSheetStyleBlackOpaque;
+    
+    [popupQuery showInView:self.view];
+    
+
+    //[self moveToWatched];
+}
+
+- (void)moveToWatched
+{
     CGAffineTransform transform=self.lastSelectedCell.transform;
     
     [UIView animateWithDuration:0.15 animations:^{
         self.lastSelectedCell.transform= CGAffineTransformScale(transform, 1.08, 1.08);
     }
-    completion: ^(BOOL finished){
-        [UIView animateWithDuration:0.3 animations:^{
-            self.lastSelectedCell.transform= CGAffineTransformScale(transform, 0.001, 0.001);
-        }
-        completion: ^(BOOL finished){
-            self.selectedMovie.watched=[NSNumber numberWithBool:YES];
-            self.selectedRow=-1;
-            self.someCellisSelected=NO;
-            self.selectedMovie.dateAdded = [NSDate date];
-            self.lastSelectedCell.transform= CGAffineTransformScale(transform, 1, 1);
-            self.lastSelectedCell=nil;
-            
-            [self.tableView reloadData];
-        }];
-   }];
-  
+     completion: ^(BOOL finished){
+         [UIView animateWithDuration:0.3 animations:^{
+             self.lastSelectedCell.transform= CGAffineTransformScale(transform, 0.001, 0.001);
+         }
+          completion: ^(BOOL finished){
+              self.selectedMovie.watched=[NSNumber numberWithBool:YES];
+              self.selectedRow=-1;
+              self.someCellisSelected=NO;
+              self.selectedMovie.dateAdded = [NSDate date];
+              self.lastSelectedCell.transform= CGAffineTransformScale(transform, 1, 1);
+              self.lastSelectedCell=nil;
+              
+              [self.tableView reloadData];
+          }];
+     }];
 }
 
 #pragma mark - movieDetailsViewDelegate
@@ -478,5 +499,86 @@
     
     
 }
+
+#pragma mark - UIActionSheet delegate
+
+-(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
+
+    
+     switch (buttonIndex) {
+     case 0:
+             [self moveToWatched];
+             [self share];
+             break;
+     case 1:
+             [self moveToWatched];
+             break;
+     case 2:
+             
+             break;
+
+     }
+     
+}
+
+#pragma mark - facebook sharing
+
+- (void)publishStory
+{
+    NSString *message = [NSString stringWithFormat:@"Added movie"];
+    
+    [FBRequestConnection startForPostStatusUpdate:message
+                                completionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
+                                    NSString *alertText;
+                                    if (error) {
+                                        alertText = [NSString stringWithFormat:
+                                                     @"There was a problem with Facebook connection"];
+                                    } else {
+                                        alertText = [NSString stringWithFormat:
+                                                     @"Posted to Facebook"];
+                                    }
+                                    // Show the result in an alert
+                                    [[[UIAlertView alloc] initWithTitle:@""
+                                                                message:alertText
+                                                               delegate:self
+                                                      cancelButtonTitle:@"OK"
+                                                      otherButtonTitles:nil]
+                                     show];
+                                    
+                                }];
+    
+    
+    
+}
+
+- (void)share
+{
+    if (!FBSession.activeSession.isOpen) {
+        [FBSession openActiveSessionWithPermissions:[NSArray arrayWithObject:@"publish_actions"] allowLoginUI:YES completionHandler:^(FBSession *session, FBSessionState status, NSError *error) {
+            if (!error) {
+                // If permissions granted, publish the story
+                [self publishStory];
+            }
+        }];
+    }
+    else {
+        if ([FBSession.activeSession.permissions
+             indexOfObject:@"publish_actions"] == NSNotFound) {
+            // No permissions found in session, ask for it
+            
+            [FBSession.activeSession reauthorizeWithPermissions:[NSArray arrayWithObject:@"publish_actions"] behavior:FBSessionLoginBehaviorForcingWebView completionHandler:^(FBSession *session, NSError *error) {
+                if (!error) {
+                    // If permissions granted, publish the story
+                    [self publishStory];
+                }
+            }];
+            
+        } else {
+            // If permissions present, publish the story
+            [self publishStory];
+        }
+    }
+}
+
 
 @end

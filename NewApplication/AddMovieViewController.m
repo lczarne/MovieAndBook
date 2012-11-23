@@ -92,62 +92,7 @@
 
 
 
-- (void)publishStory
-{
-    NSString *message = [NSString stringWithFormat:@"Added movie"];
-    
-    [FBRequestConnection startForPostStatusUpdate:message
-                                completionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
-                                    NSString *alertText;
-                                    if (error) {
-                                        alertText = [NSString stringWithFormat:
-                                                     @"There was a problem with Facebook connection"];
-                                    } else {
-                                        alertText = [NSString stringWithFormat:
-                                                     @"Posted to Facebook"];
-                                    }
-                                    // Show the result in an alert
-                                    [[[UIAlertView alloc] initWithTitle:@""
-                                                                message:alertText
-                                                               delegate:self
-                                                      cancelButtonTitle:@"OK"
-                                                      otherButtonTitles:nil]
-                                     show];
-                                    
-                                }];
 
-    
-
-}
-
-- (void)share
-{
-    if (!FBSession.activeSession.isOpen) {
-        [FBSession openActiveSessionWithPermissions:[NSArray arrayWithObject:@"publish_actions"] allowLoginUI:YES completionHandler:^(FBSession *session, FBSessionState status, NSError *error) {
-            if (!error) {
-                // If permissions granted, publish the story
-                [self publishStory];
-            }
-        }];
-    }
-    else {
-        if ([FBSession.activeSession.permissions
-             indexOfObject:@"publish_actions"] == NSNotFound) {
-            // No permissions found in session, ask for it
-            
-            [FBSession.activeSession reauthorizeWithPermissions:[NSArray arrayWithObject:@"publish_actions"] behavior:FBSessionLoginBehaviorForcingWebView completionHandler:^(FBSession *session, NSError *error) {
-                if (!error) {
-                    // If permissions granted, publish the story
-                    [self publishStory];
-                }
-            }];
-            
-        } else {
-            // If permissions present, publish the story
-            [self publishStory];
-        }
-    }
-}
 
 - (void)addMovie
 {
@@ -260,6 +205,10 @@
     if (!self.watchedMovies){
         self.ratingSwitch.hidden=YES;
         self.staticLabelRating.hidden=YES;
+        self.addAndShareView.hidden = YES;
+        CGRect oldButtonFrame = self.addButton.frame;
+        self.addButton.frame = CGRectMake(130, oldButtonFrame.origin.y, oldButtonFrame.size.width, oldButtonFrame.size.height);
+        
     }
     self.ratingSwitch.on=NO;
     self.ratingView.hidden=YES;
@@ -301,6 +250,9 @@
     [self setRatingMinusButton:nil];
     [self setRatingPlusButton:nil];
     [self setSaveMovieButton:nil];
+    [self setAddButton:nil];
+    [self setAddAndShareButton:nil];
+    [self setAddAndShareView:nil];
     [super viewDidUnload];
 }
 
@@ -308,6 +260,65 @@
 {
     // Return YES for supported orientations
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
+}
+
+#pragma mark - facebook sharing
+
+- (void)publishStory
+{
+    NSString *message = [NSString stringWithFormat:@"Added movie"];
+    
+    [FBRequestConnection startForPostStatusUpdate:message
+                                completionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
+                                    NSString *alertText;
+                                    if (error) {
+                                        alertText = [NSString stringWithFormat:
+                                                     @"There was a problem with Facebook connection"];
+                                    } else {
+                                        alertText = [NSString stringWithFormat:
+                                                     @"Posted to Facebook"];
+                                    }
+                                    // Show the result in an alert
+                                    [[[UIAlertView alloc] initWithTitle:@""
+                                                                message:alertText
+                                                               delegate:self
+                                                      cancelButtonTitle:@"OK"
+                                                      otherButtonTitles:nil]
+                                     show];
+                                    
+                                }];
+    
+    
+    
+}
+
+- (void)share
+{
+    if (!FBSession.activeSession.isOpen) {
+        [FBSession openActiveSessionWithPermissions:[NSArray arrayWithObject:@"publish_actions"] allowLoginUI:YES completionHandler:^(FBSession *session, FBSessionState status, NSError *error) {
+            if (!error) {
+                // If permissions granted, publish the story
+                [self publishStory];
+            }
+        }];
+    }
+    else {
+        if ([FBSession.activeSession.permissions
+             indexOfObject:@"publish_actions"] == NSNotFound) {
+            // No permissions found in session, ask for it
+            
+            [FBSession.activeSession reauthorizeWithPermissions:[NSArray arrayWithObject:@"publish_actions"] behavior:FBSessionLoginBehaviorForcingWebView completionHandler:^(FBSession *session, NSError *error) {
+                if (!error) {
+                    // If permissions granted, publish the story
+                    [self publishStory];
+                }
+            }];
+            
+        } else {
+            // If permissions present, publish the story
+            [self publishStory];
+        }
+    }
 }
 
 @end
