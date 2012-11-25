@@ -12,7 +12,7 @@
 #import "BookDetailsViewController.h"
 #import "TableOptionsViewController.h"
 
-@interface BooksTableViewController : CoreDataTableViewController <customSpecialCellDelegate,BookDetailViewDelegate, TableOptionsViewControllerDelegate>
+@interface BooksTableViewController : CoreDataTableViewController <customSpecialCellDelegate,BookDetailViewDelegate, TableOptionsViewControllerDelegate, UIActionSheetDelegate>
 
 @property (weak, nonatomic) IBOutlet UIButton *addButton;
 @property (nonatomic,strong) UIManagedDocument *dataBase;

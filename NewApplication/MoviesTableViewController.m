@@ -11,7 +11,7 @@
 #import "Movie+CreatingDeleting.h"
 #import "AddMovieViewController.h"
 #import <FacebookSDK/FacebookSDK.h>
-
+#import "GAI.h"
 
 @interface MoviesTableViewController()
 @property (weak, nonatomic) IBOutlet UIImageView *headerImage;
@@ -389,6 +389,9 @@
 
 - (void)shareWatchedMovie
 {
+    
+    [[GAI sharedInstance].defaultTracker trackEventWithCategory:@"Movie share" withAction:@"Share Button Pressed" withLabel:@"share Pressed - movie list" withValue:[NSNumber numberWithInt:23]];
+    
     [self share];
 }
 
@@ -399,7 +402,7 @@
 
 - (void)moveSelectedMovieToWatched:(CustomMovieCell *)sender
 {
-    UIActionSheet *popupQuery = [[UIActionSheet alloc] initWithTitle:@"Move to Watched?" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Move & Share", @"Move", nil];
+    UIActionSheet *popupQuery = [[UIActionSheet alloc] initWithTitle:@"Move to Watched Movies?" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Move & Share", @"Move", nil];
     
     popupQuery.actionSheetStyle = UIActionSheetStyleBlackOpaque;
     
@@ -525,15 +528,23 @@
 
 - (void)publishStory
 {
+    [[GAI sharedInstance].defaultTracker trackEventWithCategory:@"Movie share" withAction:@"publishStory" withLabel:@"Proper sharing - movie list" withValue:[NSNumber numberWithInt:28]];
+    
     NSString *message = [NSString stringWithFormat:@"Added movie"];
     
     [FBRequestConnection startForPostStatusUpdate:message
                                 completionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
                                     NSString *alertText;
                                     if (error) {
+                                        
+                                        [[GAI sharedInstance].defaultTracker trackEventWithCategory:@"Movie share" withAction:@"Share Problem" withLabel:@"problem with facebook - movie list" withValue:[NSNumber numberWithInt:29]];
+                                        
                                         alertText = [NSString stringWithFormat:
                                                      @"There was a problem with Facebook connection"];
                                     } else {
+                                        
+                                        [[GAI sharedInstance].defaultTracker trackEventWithCategory:@"Movie share" withAction:@"Share Succeded" withLabel:@"published to facebook - movie list" withValue:[NSNumber numberWithInt:30]];
+                                        
                                         alertText = [NSString stringWithFormat:
                                                      @"Posted to Facebook"];
                                     }
@@ -553,6 +564,8 @@
 
 - (void)share
 {
+    [[GAI sharedInstance].defaultTracker trackEventWithCategory:@"Movie share" withAction:@"Share" withLabel:@"Share started - movie list" withValue:[NSNumber numberWithInt:27]];
+    
     if (!FBSession.activeSession.isOpen) {
         [FBSession openActiveSessionWithPermissions:[NSArray arrayWithObject:@"publish_actions"] allowLoginUI:YES completionHandler:^(FBSession *session, FBSessionState status, NSError *error) {
             if (!error) {

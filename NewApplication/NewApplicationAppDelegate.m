@@ -8,6 +8,9 @@
 
 #import "NewApplicationAppDelegate.h"
 #import <FacebookSDK/FacebookSDK.h>
+#import "GAI.h"
+static const NSInteger kGANDispatchPeriodSec = 10;
+static const NSString *GoogleAnalyticsUA = @"UA-36289154-2";
 
 @implementation NewApplicationAppDelegate
 
@@ -23,7 +26,13 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // Override point for customization after application launch.
+    [GAI sharedInstance].trackUncaughtExceptions = YES;
+    [GAI sharedInstance].dispatchInterval = kGANDispatchPeriodSec;
+    [GAI sharedInstance].debug = YES;
+    NSString *UAID = [NSString stringWithFormat:@"%@",GoogleAnalyticsUA];
+    id<GAITracker> tracker = [[GAI sharedInstance] trackerWithTrackingId:UAID];
+    
+    [GAI sharedInstance].defaultTracker = tracker;
     return YES;
 }
 							

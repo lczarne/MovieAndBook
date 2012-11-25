@@ -276,7 +276,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="pUt-zV-qwD">
-                                <rect key="frame" x="130" y="313" width="60" height="60"/>
+                                <rect key="frame" x="90" y="313" width="60" height="60"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Futura-CondensedMedium" family="Futura" pointSize="20"/>
                                 <state key="normal" title="Add" backgroundImage="bt_rd.png">
@@ -290,6 +290,42 @@
                                     <action selector="addBook:" destination="Wei-jV-qr8" eventType="touchUpInside" id="hDK-ts-HMS"/>
                                 </connections>
                             </button>
+                            <view contentMode="scaleToFill" id="uhq-GD-wFq">
+                                <rect key="frame" x="170" y="313" width="60" height="60"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Euz-et-uHi">
+                                        <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="Futura-CondensedMedium" family="Futura" pointSize="20"/>
+                                        <state key="normal" backgroundImage="bt_rd.png">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <state key="highlighted">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="addAndShare:" destination="Wei-jV-qr8" eventType="touchUpInside" id="M4y-sF-8Y1"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Add" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="jJD-t6-FT4">
+                                        <rect key="frame" x="3" y="-14" width="54" height="68"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="Futura-CondensedMedium" family="Futura" pointSize="20"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="&amp;Share" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="VPh-m8-5aa">
+                                        <rect key="frame" x="3" y="22" width="54" height="33"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="Futura-CondensedMedium" family="Futura" pointSize="17"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -336,6 +372,8 @@
                         </view>
                     </navigationItem>
                     <connections>
+                        <outlet property="addAndShareView" destination="uhq-GD-wFq" id="Xkt-lG-sHr"/>
+                        <outlet property="addButton" destination="pUt-zV-qwD" id="FuK-DR-sqt"/>
                         <outlet property="authorTextField" destination="MiX-Lr-xDK" id="TdE-I4-CWC"/>
                         <outlet property="descriptionTextField" destination="g4M-WJ-ASd" id="fvf-1E-btp"/>
                         <outlet property="ratingLabel" destination="OMN-hi-BZi" id="o2i-0c-luH"/>

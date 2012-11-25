@@ -12,6 +12,8 @@
 #import "AddBookViewController.h"
 #import "CircleView.h"
 #import <QuartzCore/QuartzCore.h>
+#import <FacebookSDK/FacebookSDK.h>
+#import "GAI.h"
 
 @interface BooksTableViewController()
 @property (weak, nonatomic) IBOutlet UIImageView *headerImage;
@@ -303,10 +305,13 @@
                 cell.ratingLabel.text=[NSString stringWithFormat:@"%d/10",book.rating.integerValue];
             }
             cell.finishedButton.hidden=YES;
+            cell.shareButton.hidden = NO;
         }
         else{
             cell.staticLabelRating.hidden=YES;
             cell.ratingLabel.hidden=YES;
+            cell.finishedButton.hidden=NO;
+            cell.shareButton.hidden = YES;
         }
        
         self.selectedBook=book;
@@ -411,43 +416,60 @@
 
 
 #pragma mark - customSpecialCellDelegate
+
+- (void)shareFinishedBook
+{
+    [[GAI sharedInstance].defaultTracker trackEventWithCategory:@"Book share" withAction:@"Share Button Pressed" withLabel:@"share Pressed - book list" withValue:[NSNumber numberWithInt:33]];
+    
+    [self share];
+}
+
 - (void)editCell:(CustomSpecialCell *)sender
 {
     [self performSegueWithIdentifier:@"EditCell" sender:self];
 }
 
-- (void)moveSelectedBookToFinished:(CustomSpecialCell*)sender{
-    
-    
+- (void)moveToFinished
+{
     CGAffineTransform transform=self.lastSelectedCell.transform;
     
     [UIView animateWithDuration:0.15 animations:^{
         self.lastSelectedCell.transform= CGAffineTransformScale(transform, 1.08, 1.08);
     }
-    completion: ^(BOOL finished){
-        [UIView animateWithDuration:0.3 animations:^{
-            self.lastSelectedCell.transform= CGAffineTransformScale(transform, 0.001, 0.001);
-        }
-        completion: ^(BOOL finished){
-            
-            self.selectedBook.finished=[NSNumber numberWithBool:YES];
-            self.selectedBook.dateAdded = [NSDate date];
-            self.selectedRow=-1;
-            self.someCellisSelected=NO;
-            self.lastSelectedCell.transform= CGAffineTransformScale(transform, 1, 1);
-            self.lastSelectedCell=nil;
-            
-            [self.tableView reloadData];
-                             
-        }];
-    }];
+                     completion: ^(BOOL finished){
+                         [UIView animateWithDuration:0.3 animations:^{
+                             self.lastSelectedCell.transform= CGAffineTransformScale(transform, 0.001, 0.001);
+                         }
+                                          completion: ^(BOOL finished){
+                                              
+                                              self.selectedBook.finished=[NSNumber numberWithBool:YES];
+                                              self.selectedBook.dateAdded = [NSDate date];
+                                              self.selectedRow=-1;
+                                              self.someCellisSelected=NO;
+                                              self.lastSelectedCell.transform= CGAffineTransformScale(transform, 1, 1);
+                                              self.lastSelectedCell=nil;
+                                              
+                                              [self.tableView reloadData];
+                                              
+                                          }];
+                     }];
     
-   /*
-    BOOL finished= self.selectedBook.finished.boolValue;
+    /*
+     BOOL finished= self.selectedBook.finished.boolValue;
+     
+     finished = finished ? NO : YES;
+     */ 
+    // self.selectedBook.finished= [NSNumber numberWithBool:finished];
+}
+
+- (void)moveSelectedBookToFinished:(CustomSpecialCell*)sender{
     
-    finished = finished ? NO : YES;
-   */ 
-   // self.selectedBook.finished= [NSNumber numberWithBool:finished];   
+    UIActionSheet *popupQuery = [[UIActionSheet alloc] initWithTitle:@"Move to Finished Books?" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Move & Share", @"Move", nil];
+    
+    popupQuery.actionSheetStyle = UIActionSheetStyleBlackOpaque;
+    
+    [popupQuery showInView:self.view];
+    
     
 }
 
@@ -517,6 +539,96 @@
   
 
     
+}
+
+#pragma mark - UIActionSheet delegate
+
+-(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
+    
+    
+    switch (buttonIndex) {
+        case 0:
+            [self moveToFinished];
+            [self share];
+            break;
+        case 1:
+            [self moveToFinished];
+            break;
+        case 2:
+            
+            break;
+            
+    }
+    
+}
+
+#pragma mark - facebook sharing
+
+- (void)publishStory
+{
+    [[GAI sharedInstance].defaultTracker trackEventWithCategory:@"Book share" withAction:@"publishStory" withLabel:@"Proper sharing - book list" withValue:[NSNumber numberWithInt:38]];
+    
+    NSString *message = [NSString stringWithFormat:@"Added movie"];
+    
+    [FBRequestConnection startForPostStatusUpdate:message
+                                completionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
+                                    NSString *alertText;
+                                    if (error) {
+                                        
+                                        [[GAI sharedInstance].defaultTracker trackEventWithCategory:@"Book share" withAction:@"Share Problem" withLabel:@"problem with facebook - book list" withValue:[NSNumber numberWithInt:39]];
+                                        
+                                        alertText = [NSString stringWithFormat:
+                                                     @"There was a problem with Facebook connection"];
+                                    } else {
+                                        
+                                        [[GAI sharedInstance].defaultTracker trackEventWithCategory:@"Book share" withAction:@"Share Succeded" withLabel:@"published to facebook - book list" withValue:[NSNumber numberWithInt:30]];
+                                        
+                                        alertText = [NSString stringWithFormat:
+                                                     @"Posted to Facebook"];
+                                    }
+                                    // Show the result in an alert
+                                    [[[UIAlertView alloc] initWithTitle:@""
+                                                                message:alertText
+                                                               delegate:self
+                                                      cancelButtonTitle:@"OK"
+                                                      otherButtonTitles:nil]
+                                     show];
+                                    
+                                }];
+    
+    
+    
+}
+
+- (void)share
+{
+    [[GAI sharedInstance].defaultTracker trackEventWithCategory:@"Book share" withAction:@"Share" withLabel:@"Share started - book list" withValue:[NSNumber numberWithInt:27]];
+    
+    if (!FBSession.activeSession.isOpen) {
+        [FBSession openActiveSessionWithPermissions:[NSArray arrayWithObject:@"publish_actions"] allowLoginUI:YES completionHandler:^(FBSession *session, FBSessionState status, NSError *error) {
+            if (!error) {
+                // If permissions granted, publish the story
+                [self publishStory];
+            }
+        }];
+    }
+    else {
+        if ([FBSession.activeSession.permissions
+             indexOfObject:@"publish_actions"] == NSNotFound) {
+            // No permissions found in session, ask for it
+            
+            [FBSession.activeSession reauthorizeWithPermissions:[NSArray arrayWithObject:@"publish_actions"] behavior:FBSessionLoginBehaviorForcingWebView completionHandler:^(FBSession *session, NSError *error) {
+                if (!error) {
+                    // If permissions granted, publish the story
+                    [self publishStory];
+                }
+            }];
+            
+        } else {
+            // If permissions present, publish the story
+            [self publishStory];
+        }
+    }
 }
 
 

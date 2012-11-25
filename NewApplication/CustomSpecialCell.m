@@ -31,6 +31,9 @@
         [self.delegate moveSelectedBookToFinished:self];
     }
 }
+- (IBAction)shareBook:(id)sender {
+    [self.delegate shareFinishedBook];
+}
 
 - (IBAction)goToEditBook:(UIButton*)sender {
     [self.delegate editCell:self];

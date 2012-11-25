@@ -54,6 +54,8 @@
 		259047B2162225BF008ADA40 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 259047B1162225BF008ADA40 /* Default@2x.png */; };
 		259047B4162225C2008ADA40 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 259047B3162225C2008ADA40 /* Default-568h@2x.png */; };
 		2594199814EC253100472B57 /* BooksTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2594199714EC253100472B57 /* BooksTableViewController.m */; };
+		2598D7701662CC590077D0CF /* libGoogleAnalytics_debug.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2598D76E1662CC590077D0CF /* libGoogleAnalytics_debug.a */; };
+		2598D7711662CC590077D0CF /* libGoogleAnalytics.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2598D76F1662CC590077D0CF /* libGoogleAnalytics.a */; };
 		25AC108D14F6E105006A41C3 /* abook@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 25AC108C14F6E105006A41C3 /* abook@2x.png */; };
 		25B01ED514ED297C00762401 /* AccessoryView.m in Sources */ = {isa = PBXBuildFile; fileRef = 25B01ED414ED297C00762401 /* AccessoryView.m */; };
 		25CAA0A714E596360096980D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25CAA0A614E596360096980D /* UIKit.framework */; };
@@ -142,6 +144,13 @@
 		259047B3162225C2008ADA40 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		2594199614EC253100472B57 /* BooksTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BooksTableViewController.h; sourceTree = "<group>"; };
 		2594199714EC253100472B57 /* BooksTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BooksTableViewController.m; sourceTree = "<group>"; };
+		2598D7691662CC590077D0CF /* GAI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAI.h; sourceTree = "<group>"; };
+		2598D76A1662CC590077D0CF /* GAITrackedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAITrackedViewController.h; sourceTree = "<group>"; };
+		2598D76B1662CC590077D0CF /* GAITracker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAITracker.h; sourceTree = "<group>"; };
+		2598D76C1662CC590077D0CF /* GAITransaction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAITransaction.h; sourceTree = "<group>"; };
+		2598D76D1662CC590077D0CF /* GAITransactionItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAITransactionItem.h; sourceTree = "<group>"; };
+		2598D76E1662CC590077D0CF /* libGoogleAnalytics_debug.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libGoogleAnalytics_debug.a; sourceTree = "<group>"; };
+		2598D76F1662CC590077D0CF /* libGoogleAnalytics.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libGoogleAnalytics.a; sourceTree = "<group>"; };
 		25AC108C14F6E105006A41C3 /* abook@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "abook@2x.png"; sourceTree = "<group>"; };
 		25B01ED314ED297C00762401 /* AccessoryView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccessoryView.h; sourceTree = "<group>"; };
 		25B01ED414ED297C00762401 /* AccessoryView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccessoryView.m; sourceTree = "<group>"; };
@@ -181,15 +190,17 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				25FC155D1657FD2D009FAD08 /* MessageUI.framework in Frameworks */,
-				25FC155B1657FA9F009FAD08 /* Security.framework in Frameworks */,
 				25FC15591657FA99009FAD08 /* SystemConfiguration.framework in Frameworks */,
 				2570AB8A14E9FDC3005C48E1 /* CoreData.framework in Frameworks */,
+				25FC155D1657FD2D009FAD08 /* MessageUI.framework in Frameworks */,
+				25FC155B1657FA9F009FAD08 /* Security.framework in Frameworks */,
 				25CAA0A714E596360096980D /* UIKit.framework in Frameworks */,
 				25CACB5814E7083A0031DDE9 /* QuartzCore.framework in Frameworks */,
 				25CAA0A914E596360096980D /* Foundation.framework in Frameworks */,
 				25CAA0AB14E596360096980D /* CoreGraphics.framework in Frameworks */,
 				25FC15AD165803C7009FAD08 /* FacebookSDK.framework in Frameworks */,
+				2598D7701662CC590077D0CF /* libGoogleAnalytics_debug.a in Frameworks */,
+				2598D7711662CC590077D0CF /* libGoogleAnalytics.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -229,6 +240,20 @@
 				25E591B414FD368000EA2A3F /* smallCinema2@2x.png */,
 			);
 			name = "New Group";
+			sourceTree = "<group>";
+		};
+		2598D75B1662C5B80077D0CF /* GoogleAnalytics */ = {
+			isa = PBXGroup;
+			children = (
+				2598D7691662CC590077D0CF /* GAI.h */,
+				2598D76A1662CC590077D0CF /* GAITrackedViewController.h */,
+				2598D76B1662CC590077D0CF /* GAITracker.h */,
+				2598D76C1662CC590077D0CF /* GAITransaction.h */,
+				2598D76D1662CC590077D0CF /* GAITransactionItem.h */,
+				2598D76E1662CC590077D0CF /* libGoogleAnalytics_debug.a */,
+				2598D76F1662CC590077D0CF /* libGoogleAnalytics.a */,
+			);
+			name = GoogleAnalytics;
 			sourceTree = "<group>";
 		};
 		25CAA09714E596360096980D = {
@@ -322,6 +347,7 @@
 		25CAA0AD14E596360096980D /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				2598D75B1662C5B80077D0CF /* GoogleAnalytics */,
 				256E56C714E9925300C75D75 /* CoreDataTableViewController.h */,
 				256E56C814E9925300C75D75 /* CoreDataTableViewController.m */,
 				25CAA0B514E596360096980D /* NewApplicationAppDelegate.h */,
@@ -521,6 +547,10 @@
 				GCC_PREFIX_HEADER = "NewApplication/Movie&Book-Prefix.pch";
 				INFOPLIST_FILE = "NewApplication/Movie&Book-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/NewApplication\"",
+				);
 				OTHER_LDFLAGS = "-lsqlite3.0";
 				PRODUCT_NAME = "Movie&Book";
 				"PROVISIONING_PROFILE[sdk=*]" = "68C58F41-CFF9-4F0C-8BFE-47D35352D918";
@@ -590,6 +620,10 @@
 				GCC_PREFIX_HEADER = "NewApplication/Movie&Book-Prefix.pch";
 				INFOPLIST_FILE = "NewApplication/Movie&Book-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/NewApplication\"",
+				);
 				OTHER_LDFLAGS = "-lsqlite3.0";
 				PRODUCT_NAME = "Movie&Book";
 				WRAPPER_EXTENSION = app;
@@ -607,6 +641,10 @@
 				GCC_PREFIX_HEADER = "NewApplication/Movie&Book-Prefix.pch";
 				INFOPLIST_FILE = "NewApplication/Movie&Book-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/NewApplication\"",
+				);
 				OTHER_LDFLAGS = "-lsqlite3.0";
 				PRODUCT_NAME = "Movie&Book";
 				WRAPPER_EXTENSION = app;

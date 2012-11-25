@@ -13,6 +13,7 @@
 
 - (void)editCell:(CustomSpecialCell*)sender;
 - (void)moveSelectedBookToFinished:(CustomSpecialCell*)sender;
+- (void)shareFinishedBook;
 @end
 
 @interface CustomSpecialCell : UITableViewCell
@@ -27,5 +28,6 @@
 @property (nonatomic, strong) id<customSpecialCellDelegate> delegate;
 @property (weak, nonatomic) IBOutlet UITextView *titleTextView;
 @property (weak, nonatomic) IBOutlet UITextView *descriptionTextView;
+@property (weak, nonatomic) IBOutlet UIButton *shareButton;
 
 @end

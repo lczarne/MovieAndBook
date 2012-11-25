@@ -9,6 +9,8 @@
 #import "AddBookViewController.h"
 #import "Book+CreatingDeleting.h"
 #import "Constants.h"
+#import <FacebookSDK/FacebookSDK.h>
+#import "GAI.h"
 
 @interface AddBookViewController()
 @property (nonatomic) int ratingValue;
@@ -86,39 +88,54 @@
 
 
 
+- (IBAction)addAndShare:(UIButton *)sender {
+    if ([self.titleTextField.text length]){
+        
+        [[GAI sharedInstance].defaultTracker trackEventWithCategory:@"Book share" withAction:@"Add & Share" withLabel:@"Add & Share Button Pressed" withValue:[NSNumber numberWithInt:15]];
+        
+        [self addBook];
+        [self share];
+    }
+}
 
 - (IBAction)addBook:(UIBarButtonItem*)sender 
 {
     if ([self.titleTextField.text length]){
-        if (!self.ratingSwitch.isOn){
-            self.ratingValue=0;
-        }
-        [Book bookWithTitle:self.titleTextField.text 
-                     Author:self.authorTextField.text 
-                     Rating:[NSNumber numberWithInt:self.ratingValue] 
-                       Info:self.descriptionTextField.text 
-                   Finished:self.finishedBooks 
-     inManagedObjectContext:self.dataBase.managedObjectContext];
         
-        [self.delegate reloadAfterChanges];
+        [[GAI sharedInstance].defaultTracker trackEventWithCategory:@"Book share" withAction:@"Add" withLabel:@"Add Button Pressed" withValue:[NSNumber numberWithInt:14]];
         
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:@"Book was Added."
-                                                       delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
-        [alert show];
-        
-        self.titleTextField.text=@"";
-        self.authorTextField.text=@"";
-        self.descriptionTextField.text=@"";
-        
-        self.ratingSwitch.on=NO;
-        self.ratingView.hidden=YES;
-        self.ratingValue=0;
-        
-        
+        [self addBook];
     }
-    
 }
 
+- (void)addBook
+{
+    if (!self.ratingSwitch.isOn){
+        self.ratingValue=0;
+    }
+    [Book bookWithTitle:self.titleTextField.text
+                 Author:self.authorTextField.text
+                 Rating:[NSNumber numberWithInt:self.ratingValue]
+                   Info:self.descriptionTextField.text
+               Finished:self.finishedBooks
+ inManagedObjectContext:self.dataBase.managedObjectContext];
+    
+    [self.delegate reloadAfterChanges];
+    
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:@"Book was Added."
+                                                   delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
+    [alert show];
+    
+    self.titleTextField.text=@"";
+    self.authorTextField.text=@"";
+    self.descriptionTextField.text=@"";
+    
+    self.ratingSwitch.on=NO;
+    self.ratingView.hidden=YES;
+    self.ratingValue=0;
+    
+    [[GAI sharedInstance].defaultTracker trackEventWithCategory:@"Book share" withAction:@"Added Book" withLabel:@"Success" withValue:[NSNumber numberWithInt:16]];
+}
 
 - (void)useDocument
 {
@@ -156,6 +173,10 @@
     if (!self.finishedBooks){
         self.ratingSwitch.hidden=YES;
         self.staticLabelRating.hidden=YES;
+        self.addAndShareView.hidden = YES;
+        CGRect oldButtonFrame = self.addButton.frame;
+        self.addButton.frame = CGRectMake(130, oldButtonFrame.origin.y, oldButtonFrame.size.width, oldButtonFrame.size.height);
+        
     }
     self.ratingSwitch.on=NO;
     self.ratingView.hidden=YES;
@@ -201,6 +222,8 @@
     [self setRatingPlusButton:nil];
     [self setRatingMinusButton:nil];
     [self setStaticLabelRating:nil];
+    [self setAddButton:nil];
+    [self setAddAndShareView:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -236,6 +259,76 @@
     }
     else {
         return YES;
+    }
+}
+
+#pragma mark - facebook sharing
+
+- (void)publishStory
+{
+    
+    [[GAI sharedInstance].defaultTracker trackEventWithCategory:@"Book share" withAction:@"publishStory" withLabel:@"Proper sharing - add book" withValue:[NSNumber numberWithInt:18]];
+    
+    NSString *message = [NSString stringWithFormat:@"Added movie"];
+    
+    [FBRequestConnection startForPostStatusUpdate:message
+                                completionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
+                                    NSString *alertText;
+                                    if (error) {
+                                        
+                                        [[GAI sharedInstance].defaultTracker trackEventWithCategory:@"Book share" withAction:@"Share Problem" withLabel:@"problem with facebook - add book" withValue:[NSNumber numberWithInt:19]];
+                                        
+                                        alertText = [NSString stringWithFormat:
+                                                     @"There was a problem with Facebook connection"];
+                                    } else {
+                                        
+                                        [[GAI sharedInstance].defaultTracker trackEventWithCategory:@"Book share" withAction:@"Share Succeded" withLabel:@"published to facebook - add book" withValue:[NSNumber numberWithInt:20]];
+                                        
+                                        alertText = [NSString stringWithFormat:
+                                                     @"Posted to Facebook"];
+                                    }
+                                    // Show the result in an alert
+                                    [[[UIAlertView alloc] initWithTitle:@""
+                                                                message:alertText
+                                                               delegate:self
+                                                      cancelButtonTitle:@"OK"
+                                                      otherButtonTitles:nil]
+                                     show];
+                                    
+                                }];
+    
+    
+    
+}
+
+- (void)share
+{
+    [[GAI sharedInstance].defaultTracker trackEventWithCategory:@"Book share" withAction:@"Share" withLabel:@"Share started - add book" withValue:[NSNumber numberWithInt:17]];
+    
+    if (!FBSession.activeSession.isOpen) {
+        [FBSession openActiveSessionWithPermissions:[NSArray arrayWithObject:@"publish_actions"] allowLoginUI:YES completionHandler:^(FBSession *session, FBSessionState status, NSError *error) {
+            if (!error) {
+                // If permissions granted, publish the story
+                [self publishStory];
+            }
+        }];
+    }
+    else {
+        if ([FBSession.activeSession.permissions
+             indexOfObject:@"publish_actions"] == NSNotFound) {
+            // No permissions found in session, ask for it
+            
+            [FBSession.activeSession reauthorizeWithPermissions:[NSArray arrayWithObject:@"publish_actions"] behavior:FBSessionLoginBehaviorForcingWebView completionHandler:^(FBSession *session, NSError *error) {
+                if (!error) {
+                    // If permissions granted, publish the story
+                    [self publishStory];
+                }
+            }];
+            
+        } else {
+            // If permissions present, publish the story
+            [self publishStory];
+        }
     }
 }
 

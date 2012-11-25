@@ -32,6 +32,8 @@
 @property (weak, nonatomic) IBOutlet UISwitch *ratingSwitch;
 @property (weak, nonatomic) IBOutlet UILabel *ratingLabel;
 @property (weak, nonatomic) IBOutlet UIView *ratingView;
+@property (weak, nonatomic) IBOutlet UIButton *addButton;
+@property (weak, nonatomic) IBOutlet UIView *addAndShareView;
 
 @property (nonatomic, strong) id<AddBookViewControllerDelegate> delegate;
 

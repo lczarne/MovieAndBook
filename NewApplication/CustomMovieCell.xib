@@ -248,7 +248,7 @@
 												<int key="NSvFlags">292</int>
 												<string key="NSFrame">{{105, 99}, {42, 21}}</string>
 												<reference key="NSSuperview" ref="362900800"/>
-												<reference key="NSNextKeyView" ref="297780064"/>
+												<reference key="NSNextKeyView" ref="287687567"/>
 												<string key="NSReuseIdentifierKey">_NS:328</string>
 												<bool key="IBUIOpaque">NO</bool>
 												<bool key="IBUIClipsSubviews">YES</bool>
@@ -329,6 +329,7 @@
 												<int key="NSvFlags">292</int>
 												<string key="NSFrame">{{247, 75}, {58, 58}}</string>
 												<reference key="NSSuperview" ref="362900800"/>
+												<reference key="NSNextKeyView"/>
 												<string key="NSReuseIdentifierKey">_NS:225</string>
 												<bool key="IBUIOpaque">NO</bool>
 												<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
@@ -375,7 +376,7 @@
 												<int key="NSvFlags">292</int>
 												<string key="NSFrame">{{176, 75}, {58, 58}}</string>
 												<reference key="NSSuperview" ref="362900800"/>
-												<reference key="NSNextKeyView" ref="245870594"/>
+												<reference key="NSNextKeyView" ref="297780064"/>
 												<string key="NSReuseIdentifierKey">_NS:225</string>
 												<bool key="IBUIOpaque">NO</bool>
 												<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
@@ -394,7 +395,7 @@
 												<int key="NSvFlags">292</int>
 												<string key="NSFrame">{{176, 75}, {58, 58}}</string>
 												<reference key="NSSuperview" ref="362900800"/>
-												<reference key="NSNextKeyView" ref="287687567"/>
+												<reference key="NSNextKeyView" ref="245870594"/>
 												<string key="NSReuseIdentifierKey">_NS:225</string>
 												<bool key="IBUIOpaque">NO</bool>
 												<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
@@ -745,10 +746,6 @@
 		<object class="IBClassDescriber" key="IBDocument.Classes"/>
 		<int key="IBDocument.localizationMode">0</int>
 		<string key="IBDocument.TargetRuntimeIdentifier">IBCocoaTouchFramework</string>
-		<object class="NSMutableDictionary" key="IBDocument.PluginDeclaredDependencyDefaults">
-			<string key="NS.key.0">com.apple.InterfaceBuilder.CocoaTouchPlugin.iPhoneOS</string>
-			<real value="1536" key="NS.object.0"/>
-		</object>
 		<bool key="IBDocument.PluginDeclaredDependenciesTrackSystemTargetVersion">YES</bool>
 		<int key="IBDocument.defaultPropertyAccessControl">3</int>
 		<dictionary class="NSMutableDictionary" key="IBDocument.LastKnownImageSizes">
