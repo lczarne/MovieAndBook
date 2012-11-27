@@ -58,6 +58,11 @@
 		2598D7711662CC590077D0CF /* libGoogleAnalytics.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2598D76F1662CC590077D0CF /* libGoogleAnalytics.a */; };
 		25AC108D14F6E105006A41C3 /* abook@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 25AC108C14F6E105006A41C3 /* abook@2x.png */; };
 		25B01ED514ED297C00762401 /* AccessoryView.m in Sources */ = {isa = PBXBuildFile; fileRef = 25B01ED414ED297C00762401 /* AccessoryView.m */; };
+		25B578CC16643E8A00105C87 /* JSNotifier.m in Sources */ = {isa = PBXBuildFile; fileRef = 25B578CB16643E8A00105C87 /* JSNotifier.m */; };
+		25B578D116643EB100105C87 /* NotifyCheck.png in Resources */ = {isa = PBXBuildFile; fileRef = 25B578CD16643EB100105C87 /* NotifyCheck.png */; };
+		25B578D216643EB100105C87 /* NotifyCheck@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 25B578CE16643EB100105C87 /* NotifyCheck@2x.png */; };
+		25B578D316643EB100105C87 /* NotifyX.png in Resources */ = {isa = PBXBuildFile; fileRef = 25B578CF16643EB100105C87 /* NotifyX.png */; };
+		25B578D416643EB100105C87 /* NotifyX@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 25B578D016643EB100105C87 /* NotifyX@2x.png */; };
 		25CAA0A714E596360096980D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25CAA0A614E596360096980D /* UIKit.framework */; };
 		25CAA0A914E596360096980D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25CAA0A814E596360096980D /* Foundation.framework */; };
 		25CAA0AB14E596360096980D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25CAA0AA14E596360096980D /* CoreGraphics.framework */; };
@@ -154,6 +159,12 @@
 		25AC108C14F6E105006A41C3 /* abook@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "abook@2x.png"; sourceTree = "<group>"; };
 		25B01ED314ED297C00762401 /* AccessoryView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccessoryView.h; sourceTree = "<group>"; };
 		25B01ED414ED297C00762401 /* AccessoryView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccessoryView.m; sourceTree = "<group>"; };
+		25B578CA16643E8A00105C87 /* JSNotifier.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSNotifier.h; sourceTree = "<group>"; };
+		25B578CB16643E8A00105C87 /* JSNotifier.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSNotifier.m; sourceTree = "<group>"; };
+		25B578CD16643EB100105C87 /* NotifyCheck.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = NotifyCheck.png; sourceTree = "<group>"; };
+		25B578CE16643EB100105C87 /* NotifyCheck@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "NotifyCheck@2x.png"; sourceTree = "<group>"; };
+		25B578CF16643EB100105C87 /* NotifyX.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = NotifyX.png; sourceTree = "<group>"; };
+		25B578D016643EB100105C87 /* NotifyX@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "NotifyX@2x.png"; sourceTree = "<group>"; };
 		25CAA0A214E596360096980D /* Movie&Book.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Movie&Book.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		25CAA0A614E596360096980D /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		25CAA0A814E596360096980D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -256,6 +267,19 @@
 			name = GoogleAnalytics;
 			sourceTree = "<group>";
 		};
+		25B578C816643E7700105C87 /* JSNotifier */ = {
+			isa = PBXGroup;
+			children = (
+				25B578CD16643EB100105C87 /* NotifyCheck.png */,
+				25B578CE16643EB100105C87 /* NotifyCheck@2x.png */,
+				25B578CF16643EB100105C87 /* NotifyX.png */,
+				25B578D016643EB100105C87 /* NotifyX@2x.png */,
+				25B578CA16643E8A00105C87 /* JSNotifier.h */,
+				25B578CB16643E8A00105C87 /* JSNotifier.m */,
+			);
+			name = JSNotifier;
+			sourceTree = "<group>";
+		};
 		25CAA09714E596360096980D = {
 			isa = PBXGroup;
 			children = (
@@ -347,6 +371,7 @@
 		25CAA0AD14E596360096980D /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				25B578C816643E7700105C87 /* JSNotifier */,
 				2598D75B1662C5B80077D0CF /* GoogleAnalytics */,
 				256E56C714E9925300C75D75 /* CoreDataTableViewController.h */,
 				256E56C814E9925300C75D75 /* CoreDataTableViewController.m */,
@@ -452,6 +477,10 @@
 				2509F860162AF1D6000D03AD /* smallCinema2.png in Resources */,
 				2509F861162AF1D6000D03AD /* tickets4.png in Resources */,
 				255E0974165945C300CC52C9 /* FacebookSDKResources.bundle in Resources */,
+				25B578D116643EB100105C87 /* NotifyCheck.png in Resources */,
+				25B578D216643EB100105C87 /* NotifyCheck@2x.png in Resources */,
+				25B578D316643EB100105C87 /* NotifyX.png in Resources */,
+				25B578D416643EB100105C87 /* NotifyX@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -485,6 +514,7 @@
 				250D655E14FAFC0300ED0825 /* CustomMovieCell.m in Sources */,
 				2536E0701505B3950080B43C /* TableOptionsViewController.m in Sources */,
 				2574AC0E15EA502E00AACCB8 /* Constants.m in Sources */,
+				25B578CC16643E8A00105C87 /* JSNotifier.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -12,6 +12,7 @@
 #import "AddMovieViewController.h"
 #import <FacebookSDK/FacebookSDK.h>
 #import "GAI.h"
+#import "JSNotifier.h"
 
 @interface MoviesTableViewController()
 @property (weak, nonatomic) IBOutlet UIImageView *headerImage;
@@ -392,6 +393,7 @@
     if ([self.selectedMovie.rating intValue] != 0) {
         self.textToShare = [NSString stringWithFormat:@"%@ and rated it: %d/10",self.textToShare,[self.selectedMovie.rating intValue]];
     }
+    self.textToShare = [NSString stringWithFormat:@"%@.",self.textToShare];
 }
   
 #pragma mark - customSpecialCellDelegate
@@ -547,26 +549,32 @@
     [FBRequestConnection startForPostStatusUpdate:message
                                 completionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
                                     NSString *alertText;
+                                    NSString *alertImageName;
                                     if (error) {
                                         
                                         [[GAI sharedInstance].defaultTracker trackEventWithCategory:@"Movie share" withAction:@"Share Problem" withLabel:@"problem with facebook - movie list" withValue:[NSNumber numberWithInt:29]];
                                         
                                         alertText = [NSString stringWithFormat:
                                                      @"There was a problem with Facebook connection"];
+                                        alertImageName = @"NotifyX.png";
                                     } else {
                                         
                                         [[GAI sharedInstance].defaultTracker trackEventWithCategory:@"Movie share" withAction:@"Share Succeded" withLabel:@"published to facebook - movie list" withValue:[NSNumber numberWithInt:30]];
                                         
                                         alertText = [NSString stringWithFormat:
                                                      @"Posted to Facebook"];
+                                        alertImageName = @"NotifyCheck.png";
                                     }
                                     // Show the result in an alert
-                                    [[[UIAlertView alloc] initWithTitle:@""
-                                                                message:alertText
-                                                               delegate:self
-                                                      cancelButtonTitle:@"OK"
-                                                      otherButtonTitles:nil]
-                                     show];
+//                                    [[[UIAlertView alloc] initWithTitle:@""
+//                                                                message:alertText
+//                                                               delegate:self
+//                                                      cancelButtonTitle:@"OK"
+//                                                      otherButtonTitles:nil]
+//                                     show];
+                                    JSNotifier *notify = [[JSNotifier alloc]initWithTitle:alertText];
+                                    notify.accessoryView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:alertImageName]];
+                                    [notify showFor:2.0];
                                     
                                 }];
     

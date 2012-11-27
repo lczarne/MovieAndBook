@@ -11,6 +11,7 @@
 #import "Constants.h"
 #import <FacebookSDK/FacebookSDK.h>
 #import "GAI.h"
+#import "JSNotifier.h"
 
 @interface AddMovieViewController()
 @property (nonatomic) int ratingValue;
@@ -91,9 +92,6 @@
 
 
 
-
-
-
 - (void)addMovie
 {
     self.textToShare = [NSString stringWithFormat:@"watched \"%@\"",self.titleField.text];
@@ -105,6 +103,7 @@
     else {
         self.textToShare = [NSString stringWithFormat:@"%@ and rated it: %d/10",self.textToShare,self.ratingValue];
     }
+    self.textToShare = [NSString stringWithFormat:@"%@.",self.textToShare];
     
     [Movie movieWithTitle:self.titleField.text
                    Rating:[NSNumber numberWithInt:self.ratingValue]
@@ -114,9 +113,14 @@
     
     [self.delegate reloadAfterChanges];
     
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:@"Movie was Added."
-                                                   delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
-    [alert show];
+//    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:@"Movie was Added."
+//                                                   delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
+//    [alert show];
+    
+    JSNotifier *notify = [[JSNotifier alloc]initWithTitle:@"Movie was Added"];
+    notify.accessoryView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"NotifyCheck.png"]];
+    [notify showFor:2.0];
+    
     
     self.titleField.text=@"";
     self.infoField.text=@"";
@@ -131,6 +135,8 @@
 
 - (IBAction)addAndShare:(id)sender {
     
+    [self.titleField resignFirstResponder];
+    [self.infoField resignFirstResponder];
     
     if ([self.titleField.text length]){
         
@@ -139,6 +145,11 @@
         [self addMovie];
         [self share];
     }
+    else {
+        JSNotifier *notify = [[JSNotifier alloc]initWithTitle:@"Title is required"];
+        notify.accessoryView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"NotifyX.png"]];
+        [notify showFor:2.0];
+    }
     
 }
 
@@ -146,12 +157,19 @@
 
 - (IBAction)addMovie:(UIBarButtonItem*)sender 
 {
+    [self.titleField resignFirstResponder];
+    [self.infoField resignFirstResponder];
     
     if ([self.titleField.text length]){
         
         [[GAI sharedInstance].defaultTracker trackEventWithCategory:@"Movie share" withAction:@"Add" withLabel:@"Add Button Pressed" withValue:[NSNumber numberWithInt:4]];
         
         [self addMovie];
+    }
+    else {
+        JSNotifier *notify = [[JSNotifier alloc]initWithTitle:@"Title is required"];
+        notify.accessoryView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"NotifyX.png"]];
+        [notify showFor:2.0];
     }
 }
 
@@ -285,31 +303,37 @@
 - (void)publishStory
 {
     [[GAI sharedInstance].defaultTracker trackEventWithCategory:@"Movie share" withAction:@"publishStory" withLabel:@"Proper sharing - add movie" withValue:[NSNumber numberWithInt:8]];
-    
     NSString *message = self.textToShare;
     
     [FBRequestConnection startForPostStatusUpdate:message
                                 completionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
                                     NSString *alertText;
+                                    NSString *alertImageName;
                                     if (error) {
                                         
                                         [[GAI sharedInstance].defaultTracker trackEventWithCategory:@"Movie share" withAction:@"Share Problem" withLabel:@"problem with facebook - add movie" withValue:[NSNumber numberWithInt:9]];
                                         
                                         alertText = [NSString stringWithFormat:
                                                      @"There was a problem with Facebook connection"];
+                                        alertImageName = @"NotifyX.png";
                                     } else {
                                         [[GAI sharedInstance].defaultTracker trackEventWithCategory:@"Movie share" withAction:@"Share Succeded" withLabel:@"published to facebook - add movie" withValue:[NSNumber numberWithInt:10]];
                                         
                                         alertText = [NSString stringWithFormat:
                                                      @"Posted to Facebook"];
+                                        alertImageName = @"NotifyCheck.png";
                                     }
                                     // Show the result in an alert
-                                    [[[UIAlertView alloc] initWithTitle:@""
-                                                                message:alertText
-                                                               delegate:self
-                                                      cancelButtonTitle:@"OK"
-                                                      otherButtonTitles:nil]
-                                     show];
+//                                    [[[UIAlertView alloc] initWithTitle:@""
+//                                                                message:alertText
+//                                                               delegate:self
+//                                                      cancelButtonTitle:@"OK"
+//                                                      otherButtonTitles:nil]
+//                                     show];
+                                    
+                                    JSNotifier *notify = [[JSNotifier alloc]initWithTitle:alertText];
+                                    notify.accessoryView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:alertImageName]];
+                                    [notify showFor:2.0];
                                     
                                 }];
     

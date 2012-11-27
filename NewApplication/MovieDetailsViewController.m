@@ -8,6 +8,7 @@
 
 #import "MovieDetailsViewController.h"
 #import "Constants.h"
+#import "JSNotifier.h"
 
 @interface MovieDetailsViewController()
 @property (nonatomic) int ratingValue;
@@ -99,11 +100,19 @@
             self.movie.rating= [NSNumber numberWithInt:0];
         }
         
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:@"Saved."
-                                                       delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
-        [alert show];
+//        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:@"Saved."
+//                                                       delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
+//        [alert show];
+//        
+//        [self.delegate reloadAfterChanges];
+        
+        JSNotifier *notify = [[JSNotifier alloc]initWithTitle:@"Saved"];
+        notify.accessoryView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"NotifyCheck.png"]];
+        [notify showFor:2.0];
         
         [self.delegate reloadAfterChanges];
+        
+        [self.navigationController popViewControllerAnimated:YES];
     }
 }
 
@@ -111,9 +120,13 @@
 - (IBAction)deleteMovie:(UIButton*)sender {
     [self.delegate deleteMovie:self.movie sender:self];
     
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:@"Movie was deleted."
-                                                   delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
-	[alert show];
+    JSNotifier *notify = [[JSNotifier alloc]initWithTitle:@"Deleted"];
+    notify.accessoryView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"NotifyCheck.png"]];
+    [notify showFor:2.0];
+    
+    [self.delegate reloadAfterChanges];
+    
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 #pragma mark - View lifecycle
