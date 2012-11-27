@@ -18,6 +18,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property BOOL showWatchedMovies;
 @property (weak, nonatomic) IBOutlet UIButton *addButton;
+@property (nonatomic, strong) NSString *textToShare;
 
 - (void)setTitleLabelText:(NSString *)titleText;
 @end

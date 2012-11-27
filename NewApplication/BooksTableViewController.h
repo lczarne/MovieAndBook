@@ -19,6 +19,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *loadingDataIndicator;
 @property (weak, nonatomic) IBOutlet UIButton *optionsButton;
+@property (nonatomic, strong) NSString *textToShare;
 @property BOOL showFinishedBooks;
 @property BOOL usingDatabase;
 

@@ -110,9 +110,16 @@
 
 - (void)addBook
 {
+    self.textToShare = [NSString stringWithFormat:@"finished reading \"%@\"",self.titleTextField.text];
+    
+    
     if (!self.ratingSwitch.isOn){
         self.ratingValue=0;
     }
+    else {
+        self.textToShare = [NSString stringWithFormat:@"%@ and rated it: %d/10",self.textToShare,self.ratingValue];
+    }
+    
     [Book bookWithTitle:self.titleTextField.text
                  Author:self.authorTextField.text
                  Rating:[NSNumber numberWithInt:self.ratingValue]
@@ -269,7 +276,7 @@
     
     [[GAI sharedInstance].defaultTracker trackEventWithCategory:@"Book share" withAction:@"publishStory" withLabel:@"Proper sharing - add book" withValue:[NSNumber numberWithInt:18]];
     
-    NSString *message = [NSString stringWithFormat:@"Added movie"];
+    NSString *message = self.textToShare;
     
     [FBRequestConnection startForPostStatusUpdate:message
                                 completionHandler:^(FBRequestConnection *connection, id result, NSError *error) {

@@ -96,9 +96,16 @@
 
 - (void)addMovie
 {
+    self.textToShare = [NSString stringWithFormat:@"watched \"%@\"",self.titleField.text];
+    
+    
     if (!self.ratingSwitch.isOn){
         self.ratingValue=0;
     }
+    else {
+        self.textToShare = [NSString stringWithFormat:@"%@ and rated it: %d/10",self.textToShare,self.ratingValue];
+    }
+    
     [Movie movieWithTitle:self.titleField.text
                    Rating:[NSNumber numberWithInt:self.ratingValue]
                      Info:self.infoField.text
@@ -279,7 +286,7 @@
 {
     [[GAI sharedInstance].defaultTracker trackEventWithCategory:@"Movie share" withAction:@"publishStory" withLabel:@"Proper sharing - add movie" withValue:[NSNumber numberWithInt:8]];
     
-    NSString *message = [NSString stringWithFormat:@"Added movie"];
+    NSString *message = self.textToShare;
     
     [FBRequestConnection startForPostStatusUpdate:message
                                 completionHandler:^(FBRequestConnection *connection, id result, NSError *error) {

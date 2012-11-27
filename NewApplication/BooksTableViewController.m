@@ -413,12 +413,21 @@
 }
 
 
-
+- (void)prepareTextToShare
+{
+    self.textToShare = [NSString stringWithFormat:@"finished reading \"%@\"",self.selectedBook.title];
+    
+    if ([self.selectedBook.rating intValue] != 0) {
+        self.textToShare = [NSString stringWithFormat:@"%@ and rated it: %d/10",self.textToShare,[self.selectedBook.rating intValue]];
+    }
+}
 
 #pragma mark - customSpecialCellDelegate
 
 - (void)shareFinishedBook
 {
+    [self prepareTextToShare];
+    
     [[GAI sharedInstance].defaultTracker trackEventWithCategory:@"Book share" withAction:@"Share Button Pressed" withLabel:@"share Pressed - book list" withValue:[NSNumber numberWithInt:33]];
     
     [self share];
@@ -431,6 +440,7 @@
 
 - (void)moveToFinished
 {
+    
     CGAffineTransform transform=self.lastSelectedCell.transform;
     
     [UIView animateWithDuration:0.15 animations:^{
@@ -548,6 +558,7 @@
     
     switch (buttonIndex) {
         case 0:
+            [self prepareTextToShare];
             [self moveToFinished];
             [self share];
             break;
@@ -568,7 +579,7 @@
 {
     [[GAI sharedInstance].defaultTracker trackEventWithCategory:@"Book share" withAction:@"publishStory" withLabel:@"Proper sharing - book list" withValue:[NSNumber numberWithInt:38]];
     
-    NSString *message = [NSString stringWithFormat:@"Added movie"];
+    NSString *message = self.textToShare;
     
     [FBRequestConnection startForPostStatusUpdate:message
                                 completionHandler:^(FBRequestConnection *connection, id result, NSError *error) {

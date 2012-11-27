@@ -384,11 +384,22 @@
     self.headerImage.alpha=0.8+headerImageAlphaChange;
     self.headerImage.frame= CGRectMake(self.headerImage.frame.origin.x, self.headerImageOriginYInitialValue+headerImageOriginYChange, self.headerImage.frame.size.width, self.headerImage.frame.size.height);
 }
+
+- (void)prepareTextToShare
+{
+    self.textToShare = [NSString stringWithFormat:@"watched \"%@\"",self.selectedMovie.title];
+    
+    if ([self.selectedMovie.rating intValue] != 0) {
+        self.textToShare = [NSString stringWithFormat:@"%@ and rated it: %d/10",self.textToShare,[self.selectedMovie.rating intValue]];
+    }
+}
   
 #pragma mark - customSpecialCellDelegate
 
 - (void)shareWatchedMovie
 {
+    
+    [self prepareTextToShare];
     
     [[GAI sharedInstance].defaultTracker trackEventWithCategory:@"Movie share" withAction:@"Share Button Pressed" withLabel:@"share Pressed - movie list" withValue:[NSNumber numberWithInt:23]];
     
@@ -510,6 +521,7 @@
     
      switch (buttonIndex) {
      case 0:
+             [self prepareTextToShare];
              [self moveToWatched];
              [self share];
              break;
@@ -530,7 +542,7 @@
 {
     [[GAI sharedInstance].defaultTracker trackEventWithCategory:@"Movie share" withAction:@"publishStory" withLabel:@"Proper sharing - movie list" withValue:[NSNumber numberWithInt:28]];
     
-    NSString *message = [NSString stringWithFormat:@"Added movie"];
+    NSString *message = self.textToShare;
     
     [FBRequestConnection startForPostStatusUpdate:message
                                 completionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
